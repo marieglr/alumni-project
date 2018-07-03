@@ -48,7 +48,7 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.use(session({
-  secret: "sessionSecret",
+  secret: process.env.sessionSecret,
   saveUninitialized: true,
   resave: true,
   store: new MongoStore({ mongooseConnection: mongoose.connection})

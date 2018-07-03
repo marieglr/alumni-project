@@ -3,23 +3,105 @@
 {{>flashMessages}}
 
 <form method="POST" action="/process-signup">
-  <label for="fullName">
-    Full name: 
-    <input type="text" name="fullName" id="fullName" placeholder="Sophie Dupont">
+
+  <h3>Personal Information:</h3>
+  <label for="firstName">
+    First Name: 
   </label>
+    <input type="text" name="firstName" id="firstName" placeholder="Elon">
+  <br>
+
+   <label for="lastName">
+    Last Name: 
+  </label>
+    <input type="text" name="lastName" id="lastName" placeholder="Musk">
   <br>
 
 <label for="email">
   Email:
-  <input type="email" name="email" id="email" placeholder="sophie@dupont.com">
 </label>
+  <input type="email" name="email" id="email" placeholder="sophie@dupont.com">
 <br>
 
 <label for="originalPassword">
   Password: 
+  </label>
   <input type="password" name="originalPassword" id="originalPassword" placeholder="******">
-</label>
 <br>
+
+ <label for="linkedInAccount">
+    LinkedIn Account URL: 
+    </label>
+    <input type="text" name="linkedInAccount" id="linkedInAccount">
+  <br>
+
+<label for="githubAccount">
+    Github Account URL: 
+  </label>
+    <input type="text" name="githubAccount" id="githubAccount">
+  <br>
+
+<label for="behanceAccount">
+    Behance Account URL: 
+  </label>
+    <input type="text" name="behanceAccount" id="behanceAccount">
+  <br>
+ 
+ <h3>Ironhack Course Information:</h3>
+   <label for="course">
+    Course Attended: 
+    </label>
+      <input type="checkbox" name="course" value="UX-UI">UX-UI<br>
+      <input type="checkbox" name="course" value="Web-Dev">Web-Dev<br>
+  <br>
+
+  <label for="courseTimeStructure">
+    Course Attended: 
+    </label>
+      <input type="checkbox" name="courseTimeStructure" value="full-time">Full-Time<br>
+      <input type="checkbox" name="courseTimeStructure" value="part-time">Part-Time<br>
+  <br>
+
+  <label for="IronhackCourseCity">
+    Bootcamp City: 
+  </label>
+      <input type="checkbox" name="IronhackCourseCity" value="Miami">Miami<br>
+      <input type="checkbox" name="IronhackCourseCity" value="Madrid">Madrid<br>
+      <input type="checkbox" name="IronhackCourseCity" value="Barcelona">Barcelona<br>
+      <input type="checkbox" name="IronhackCourseCity" value="Paris">Paris<br>
+      <input type="checkbox" name="IronhackCourseCity" value="Mexico">Mexico<br>
+      <input type="checkbox" name="IronhackCourseCity" value="Berlin">Berlin<br>
+  <br>
+
+  <label for="cohortTime">
+    Bootcamp Start Date: 
+  </label>
+    <input type="date" name="cohortTime" id="cohortTime">
+  <br>
+ 
+
+  <h3>Current Information</h3>
+
+    <label for="currentCity">
+    Current City: 
+     </label>
+    <input type="text" name="currentCity" id="currentCity">
+    <br>
+
+    <label for="employmentStatus">
+    Employment Status: 
+    </label>
+      <input type="checkbox" name="employmentStatus" value="Currently working">Currently working<br>
+      <input type="checkbox" name="employmentStatus" value="Looking for a job">Looking for a job<br>
+      <input type="checkbox" name="employmentStatus" value="Neither">Neither<br>
+  <br>
+
+    <label for="currentCompany">
+    Current Company: 
+    </label>
+    <input type="text" name="currentCompany" id="currentCompany">
+  <br>
+
 
 <button>Sign up</button>
 </form>

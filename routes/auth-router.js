@@ -12,7 +12,22 @@ router.get("/signup", (req, res, next)=>{
 })
 
 router.post("/process-signup", (req, res, next)=>{
-  const { fullName, email, originalPassword } = req.body;
+  const { 
+    firstName, 
+    lastName,
+    email, 
+    originalPassword, 
+    linkedInAccount, 
+    githubAccount, 
+    behanceAccount, 
+    course, 
+    courseTimeStructure, 
+    IronhackCourseCity, 
+    cohortTime, 
+    currentCity, 
+    employmentStatus, 
+    currentCompany
+  } = req.body;
 
   //password can't be blank and require numbers
   if (originalPassword === "" || originalPassword.match(/[0-9]/)=== null) {
@@ -23,7 +38,22 @@ router.post("/process-signup", (req, res, next)=>{
 
 
   const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
-  User.create({fullName, email, encryptedPassword})
+  User.create({
+    firstName, 
+    lastName,
+    email, 
+    encryptedPassword, 
+    linkedInAccount, 
+    githubAccount, 
+    behanceAccount, 
+    course, 
+    courseTimeStructure, 
+    IronhackCourseCity, 
+    cohortTime, 
+    currentCity, 
+    employmentStatus, 
+    currentCompany
+  })
     .then((userDoc)=>{
     req.flash("success", "Signed up successfully, try logging in");
       res.redirect("/");
