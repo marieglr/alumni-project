@@ -1,14 +1,18 @@
 require('dotenv').config();
 
-const bodyParser   = require('body-parser');
-const cookieParser = require('cookie-parser');
-const express      = require('express');
 const favicon      = require('serve-favicon');
+const cookieParser = require('cookie-parser');
+const bodyParser   = require('body-parser');
+const express      = require('express');
 const hbs          = require('hbs');
-const mongoose     = require('mongoose');
-const logger       = require('morgan');
 const path         = require('path');
+const logger       = require('morgan');
+const mongoose     = require('mongoose');
+const flash        = require('connect-flash');
+const session      = require('express-session');
+const MongoStore   = require('connect-mongo')(session);
 
+const passportSetup = require('./passport/setup.js');
 
 mongoose.Promise = Promise;
 mongoose
@@ -37,22 +41,34 @@ app.use(require('node-sass-middleware')({
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
-      
 
+hbs.registerPartials(__dirname+ '/views/partials');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+app.use(session({
+  secret: "sessionSecret",
+  saveUninitialized: true,
+  resave: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection})
+}));
 
+app.use(flash());
 
+passportSetup(app);
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Ironhack Alumnis - Project 2 by Meri and Marie';
 
 
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const authRouter = require('./routes/auth-router.js');
+app.use('/', authRouter);
+
 
 
 module.exports = app;
