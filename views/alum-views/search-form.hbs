@@ -1,0 +1,19 @@
+<h2>Let's narrow it down</h2>
+
+  <form method="GET" action="/find-hackers">
+    <input type="text" name="fullName" placeholder="John Smith">
+
+    <select name="city">
+      {{#each users}}
+        <option value="{{this.city}}">{{this.city}}</option>
+      {{/each}}
+    </select>
+
+    <select name="cohort">
+      {{#each users}}
+        <option value="{{this.cohort}}">{{this.cohort}}</option>
+      {{/each}}
+    </select>
+
+      <button class="index-btn">Search for an Ironhacker!</button>
+    </form>
