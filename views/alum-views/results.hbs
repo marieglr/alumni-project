@@ -1,10 +1,13 @@
 {{#each hackerResults}}
 
 <img src="{{this.photoUrl}}">
-<h3>{{this.fullName}}</h3>
-<p>Currently working @ {{this.company}}</p>
+<h3>{{this.firstName}} {{this.lastName}}</h3>
 
-<p>{{this.email}}</p>
+  {{#if this.isEmployed}}
+    <p>Currently working in {{this.currentCity}} @ {{this.currentCompany}}</p>
+  {{else}}
+    <p>Currently in {{this.currentCity}}!</p>
+  {{/if}}
 
 <a href="/find-hackers/{{this._id}}">View More</a>
 

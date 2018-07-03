@@ -7,18 +7,18 @@ const userSchema = new Schema ({
   lastName: {type: String, required: true},
   //pictureURL: {type: String},
   email: {
-    type: String, 
-    required: true, 
-    unique: true, 
+    type: String,
+    required: true,
+    unique: true,
     match: /^.+@.+\..+$/
   },
   course: {
-    type: String, 
+    type: String,
     enum: ["UX-UI", "Web-Dev"],
     required: true
     },
   courseTimeStructure: {
-    type: String, 
+    type: String,
     enum: ["full-time", "part-time"],
     required: true
     },
@@ -54,6 +54,9 @@ userSchema.virtual("isAdmin").get(function(){
   return this.role === "admin";
 });
 
+userSchema.virtual("isEmployed").get(function(){
+  return this.employmentStatus === "Currently working"
+})
 
 const User = mongoose.model("User", userSchema);
 

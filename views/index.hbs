@@ -1,2 +1,17 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+
+
+{{#if connectedUser}}
+<h2>Looking for someone?</h2>
+<button><a href="/search">Find an Ironhacker</a></button>
+
+<button><a href="">Discover</a></button>
+
+
+{{else}}
+<a href="/login">Log In</a>
+
+<p>Not a registered as an alum yet?</p>
+<p><a href="/signup">Sign up now!</a></p>
+{{/if}}

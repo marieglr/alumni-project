@@ -1,0 +1,16 @@
+<h2>{{hackerDoc.firstName}} {{hackerDoc.lastName}}</h2>
+
+<p>{{hackerDoc.firstName}} was a student in the {{hackerDoc.course}} course in {{hackerDoc.IronhackCourseCity}}</p>
+
+
+<p>Work status: {{hackerDoc.employmentStatus}}</p>
+
+{{#if hackerDoc.isEmployed}}
+  <p>Currently working @ {{hackerDoc.currentCompany}}</p>
+{{/if}}
+
+<hr>
+
+<p>Have a question for {{hackerDoc.firstName}}?</p>
+<p>Ask below!</p>
+

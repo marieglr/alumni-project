@@ -9,8 +9,14 @@ router.get('/search', (req, res, next) => {
      res.redirect("/login");
      return;
    }
-
-  res.render('alum-views/search-form.hbs');
+  User.find()
+  .then((info) => {
+    res.locals.info = info;
+    res.render('alum-views/search-form.hbs');
+  })
+  .catch((err) => {
+    next(err)
+  })
 })
 
 router.get("/find-hackers", (req, res, next) => {
@@ -20,14 +26,27 @@ router.get("/find-hackers", (req, res, next) => {
      return;
    }
 
-  User.find(req.query)
-    .then(data => {
-    res.locals.hackerResults = data;
-    res.render("alum-views/results.hbs")
+  if (req.body.firstName == undefined) {
+    const {IronhackCourseCity} = req.query;
+    User.find({IronhackCourseCity})
+      .then(data => {
+      res.locals.hackerResults = data;
+      res.render("alum-views/results.hbs")
+      })
+      .catch(err => {
+        next(err)
+      })
+    }
+  else {
+    User.find(req.query)
+      .then(data => {
+      res.locals.hackerResults = data;
+      res.render("alum-views/results.hbs")
+      })
+      .catch(err => {
+        next(err)
     })
-    .catch(err => {
-      next(err)
-    })
+  }
 })
 
 router.get("/find-hackers/:hackerId", (req, res, next) => {
@@ -37,7 +56,15 @@ router.get("/find-hackers/:hackerId", (req, res, next) => {
      return;
    }
 
-   User.findById()
+   const { hackerId } = req.params;
+   User.findById(hackerId)
+   .then((hackerDoc) => {
+      res.locals.hackerDoc = hackerDoc;
+      res.render("alum-views/hacker-page.hbs")
+   })
+   .catch((err) => {
+      next(err);
+   })
 })
 
 module.exports = router;

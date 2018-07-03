@@ -1,19 +1,22 @@
 <h2>Let's narrow it down</h2>
 
   <form method="GET" action="/find-hackers">
-    <input type="text" name="fullName" placeholder="John Smith">
+    <input type="text" name="firstName" placeholder="John">
 
-    <select name="city">
-      {{#each users}}
-        <option value="{{this.city}}">{{this.city}}</option>
-      {{/each}}
+    <select name="IronhackCourseCity">
+        <option value="Miami">Miami</option>
+        <option value="Madrid">Madrid</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value="Paris">Paris</option>
+        <option value="Mexico">Mexico</option>
+        <option value="Berlin">Berlin</option>
     </select>
 
-    <select name="cohort">
-      {{#each users}}
-        <option value="{{this.cohort}}">{{this.cohort}}</option>
+    {{!-- <select name="cohortTime">
+      {{#each info}}
+        <option value="{{this.cohortTime}}">{{this.cohortTime}}</option>
       {{/each}}
-    </select>
+    </select> --}}
 
       <button class="index-btn">Search for an Ironhacker!</button>
     </form>
