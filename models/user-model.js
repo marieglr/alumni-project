@@ -44,6 +44,16 @@ const userSchema = new Schema ({
     default: "normal",
     required: true,
   },
+  comments: [
+    {
+      author: {
+        type: Schema.Types.ObjectId, 
+        ref: "User",
+        required: true,
+      },
+      content: {type: String, required: true, maxlength: 1200}
+    }
+  ],
   encryptedPassword: {type: String},
 },{
   timestamps : true,

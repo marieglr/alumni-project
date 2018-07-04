@@ -72,4 +72,7 @@ app.use('/', authRouter);
 const alumRouter = require('./routes/alum-router.js');
 app.use('/', alumRouter);
 
+const commentsRouter = require('./routes/comments-router.js');
+app.use('/', commentsRouter);
+
 module.exports = app;

@@ -14,3 +14,23 @@
 <p>Have a question for {{hackerDoc.firstName}}?</p>
 <p>Ask below!</p>
 
+<form method="POST" action="/find-hackers/{{hackerDoc._id}}/process-review">
+
+        <label for="content">Comment</label>
+        <input type="text" name="content">
+        <br>
+
+        <button>Post Comment</button>
+</form>
+
+<hr>
+
+{{#each hackerDoc.comments}}
+<div class="comment-item">
+  <span>{{this.author}}</span>
+  <p>{{this.content}}</p>
+</div>
+{{else}}
+<p>No reviews yet. Be the first to write one :)</p>
+{{/each}}
+
