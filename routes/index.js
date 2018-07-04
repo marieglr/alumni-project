@@ -8,6 +8,8 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+
+/* GET random hacker */
 router.get('/random', (req, res, next) => {
   User.find()
   .then((userDoc)=>{
@@ -20,5 +22,6 @@ router.get('/random', (req, res, next) => {
     next(err);
   })
 })
+
 
 module.exports = router;
