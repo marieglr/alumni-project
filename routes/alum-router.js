@@ -26,27 +26,42 @@ router.get("/find-hackers", (req, res, next) => {
      return;
    }
 
-  if (req.body.firstName == undefined) {
-    const {IronhackCourseCity} = req.query;
-    User.find({IronhackCourseCity})
+   if (req.query.firstName === "") {
+    User.find(
+      {IronhackCourseCity: req.query.IronhackCourseCity})
       .then(data => {
-      res.locals.hackerResults = data;
-      res.render("alum-views/results.hbs")
-      })
+        res.locals.hackerResults = data;
+        res.render("alum-views/results.hbs")
+        })
       .catch(err => {
         next(err)
       })
-    }
-  else {
-    User.find(req.query)
+   }
+   else if (req.query.IronhackCourseCity === "all"){
+    User.find(
+      {firstName:req.query.firstName})
       .then(data => {
-      res.locals.hackerResults = data;
-      res.render("alum-views/results.hbs")
-      })
+        res.locals.hackerResults = data;
+        res.render("alum-views/results.hbs")
+        })
       .catch(err => {
         next(err)
-    })
-  }
+      })
+   }
+   else {
+    User.find(
+      {$and: [{IronhackCourseCity: req.query.IronhackCourseCity},
+      {firstName:req.query.firstName}]})
+      .then(data => {
+        res.locals.hackerResults = data;
+        res.render("alum-views/results.hbs")
+        })
+      .catch(err => {
+        next(err)
+      })
+   }
+
+
 })
 
 router.get("/find-hackers/:hackerId", (req, res, next) => {
