@@ -17,7 +17,7 @@
 <form method="POST" action="/find-hackers/{{hackerDoc._id}}/process-review">
 
         <label for="content">Comment</label>
-        <input type="text" name="content">
+        <input type="textarea" name="content">
         <br>
 
         <button>Post Comment</button>
@@ -27,7 +27,7 @@
 
 {{#each hackerDoc.comments}}
 <div class="comment-item">
-  <span>{{this.author}}</span>
+  <p><a href="/find-hackers/{{this.author._id}}">{{this.author.firstName}} {{this.author.lastName}}</a></p>
   <p>{{this.content}}</p>
 </div>
 {{else}}
