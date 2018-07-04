@@ -106,10 +106,7 @@ router.post("/process-login", (req, res, next)=>{
         req.flash("success", "Logged in successfully");
         res.redirect("/");
       });
-<<<<<<< HEAD
-=======
 
->>>>>>> 61bec211eaa7981cd07a60d9343e46e231e5712b
     })
     .catch(err =>{
       next(err)
@@ -145,35 +142,35 @@ router.post("/process-settings", (req, res, next)=>{
     return;
   }
 
-  const { firstName, 
+  const { firstName,
     lastName,
-    email, 
-    linkedInAccount, 
-    githubAccount, 
-    behanceAccount, 
-    course, 
-    courseTimeStructure, 
-    IronhackCourseCity, 
-    cohortTime, 
-    currentCity, 
-    employmentStatus, 
+    email,
+    linkedInAccount,
+    githubAccount,
+    behanceAccount,
+    course,
+    courseTimeStructure,
+    IronhackCourseCity,
+    cohortTime,
+    currentCity,
+    employmentStatus,
     currentCompany,
     oldPassword,
     newPassword} = req.body;
 
   let changes = {
-    firstName, 
+    firstName,
     lastName,
-    email, 
-    linkedInAccount, 
-    githubAccount, 
-    behanceAccount, 
-    course, 
-    courseTimeStructure, 
-    IronhackCourseCity, 
-    cohortTime, 
-    currentCity, 
-    employmentStatus, 
+    email,
+    linkedInAccount,
+    githubAccount,
+    behanceAccount,
+    course,
+    courseTimeStructure,
+    IronhackCourseCity,
+    cohortTime,
+    currentCity,
+    employmentStatus,
     currentCompany,
   };
 
@@ -185,19 +182,19 @@ router.post("/process-settings", (req, res, next)=>{
     }
 
     const encryptedPassword = bcrypt.hashSync(newPassword, 10);
-    changes = { 
-      firstName, 
+    changes = {
+      firstName,
       lastName,
-      email, 
-      linkedInAccount, 
-      githubAccount, 
-      behanceAccount, 
-      course, 
-      courseTimeStructure, 
-      IronhackCourseCity, 
-      cohortTime, 
-      currentCity, 
-      employmentStatus, 
+      email,
+      linkedInAccount,
+      githubAccount,
+      behanceAccount,
+      course,
+      courseTimeStructure,
+      IronhackCourseCity,
+      cohortTime,
+      currentCity,
+      employmentStatus,
       currentCompany,
       encryptedPassword
     }

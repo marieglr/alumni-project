@@ -86,7 +86,6 @@ router.get("/find-hackers/:hackerId", (req, res, next) => {
    .populate("comments")
    .then((hackerDoc) => {
       res.locals.hackerDoc = hackerDoc;
-      //console.log(hackerDoc)
       res.render("alum-views/hacker-page.hbs")
    })
    .catch((err) => {
