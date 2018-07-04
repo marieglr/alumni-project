@@ -50,12 +50,12 @@ const userSchema = new Schema ({
     default: "unverified"},
   comments: [
     {
-      author: {
+      post: {
         type: Schema.Types.ObjectId,
         ref: "User",
         required: true,
       },
-      content: {type: String, required: true, maxlength: 1200}
+      //content: {type: String, required: true, maxlength: 1200}
     }
   ],
   encryptedPassword: {type: String},
