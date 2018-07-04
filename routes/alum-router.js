@@ -60,8 +60,6 @@ router.get("/find-hackers", (req, res, next) => {
         next(err)
       })
    }
-
-
 })
 
 router.get("/find-hackers/:hackerId", (req, res, next) => {
@@ -80,6 +78,19 @@ router.get("/find-hackers/:hackerId", (req, res, next) => {
    .catch((err) => {
       next(err);
    })
+})
+
+router.get('/random', (req, res, next) => {
+  User.find()
+  .then((userDoc)=>{
+    const random = Math.floor(Math.random() * userDoc.length)
+    const hackerDoc = userDoc[random];
+    res.locals.hackerDoc = hackerDoc;
+    res.redirect(`/find-hackers/${hackerDoc._id}`)
+  })
+  .catch((err)=>{
+    next(err);
+  })
 })
 
 module.exports = router;
