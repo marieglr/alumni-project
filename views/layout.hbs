@@ -12,13 +12,18 @@
         <a href="/">Home</a>
 
         {{#if connectedUser}}
+
           <strong>{{connectedUser.email}}</strong>
            <a href="/logout">Log Out</a>
+
+           {{#if connectedUser.isAdmin}}
+           <a href="">Admin</a>
+           {{/if}}
         {{else}}
          <a href="/signup">Sign Up</a>
         <a href="/login">Log In</a>
         {{/if}}
-        
+
       </nav>
     </header>
 

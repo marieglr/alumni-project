@@ -15,3 +15,10 @@
 <p>Not a registered as an alum yet?</p>
 <p><a href="/signup">Sign up now!</a></p>
 {{/if}}
+
+{{#if connectedUser.isAdmin}}
+
+<h3>{{verifyCount}} users waiting to be verified!</h3>
+<p><a href="/verify-users">Verify Users Now!</a></p>
+
+{{/if}}
