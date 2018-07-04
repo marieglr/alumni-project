@@ -44,10 +44,14 @@ const userSchema = new Schema ({
     default: "normal",
     required: true,
   },
+  accountStatus: {
+    type: String,
+    enum: ["unverified", "verified"],
+    default: "unverified"},
   comments: [
     {
       author: {
-        type: Schema.Types.ObjectId, 
+        type: Schema.Types.ObjectId,
         ref: "User",
         required: true,
       },

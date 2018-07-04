@@ -1,0 +1,13 @@
+{{#each users}}
+
+<p>{{this.firstName}} {{this.lastName}} would like to be verified</p><h3></h3>
+
+<form method="POST" action="/verify-user/{{this._id}}">
+<input type="hidden" name="userId" value={{this._id}}>
+<button>Activate User</button>
+</form>
+
+{{else}}
+<h2>No users to verify</h2>
+
+{{/each}}
