@@ -12,14 +12,22 @@
         <a href="/">Home</a>
 
         {{#if connectedUser}}
+
           <strong>{{connectedUser.email}}</strong>
            <a href="/logout">Log Out</a>
+<<<<<<< HEAD
            <a href="/settings">Update your profile</a>
+=======
+
+           {{#if connectedUser.isAdmin}}
+           <a href="/verify-users">Admin</a>
+           {{/if}}
+>>>>>>> 61bec211eaa7981cd07a60d9343e46e231e5712b
         {{else}}
          <a href="/signup">Sign Up</a>
         <a href="/login">Log In</a>
         {{/if}}
-        
+
       </nav>
     </header>
 

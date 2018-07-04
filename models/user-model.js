@@ -72,6 +72,10 @@ userSchema.virtual("isEmployed").get(function(){
   return this.employmentStatus === "Currently working"
 })
 
+userSchema.virtual("isVerified").get(function(){
+  return this.accountStatus === "verified";
+});
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;

@@ -30,7 +30,7 @@ function passportSetup (app) {
 
     //make the flash messages available inside the views
     res.locals.messages = req.flash();
-    
+
     next();
   });
 }

@@ -13,20 +13,20 @@ router.get("/signup", (req, res, next)=>{
 })
 
 router.post("/process-signup", (req, res, next)=>{
-  const { 
-    firstName, 
+  const {
+    firstName,
     lastName,
-    email, 
-    originalPassword, 
-    linkedInAccount, 
-    githubAccount, 
-    behanceAccount, 
-    course, 
-    courseTimeStructure, 
-    IronhackCourseCity, 
-    cohortTime, 
-    currentCity, 
-    employmentStatus, 
+    email,
+    originalPassword,
+    linkedInAccount,
+    githubAccount,
+    behanceAccount,
+    course,
+    courseTimeStructure,
+    IronhackCourseCity,
+    cohortTime,
+    currentCity,
+    employmentStatus,
     currentCompany
   } = req.body;
 
@@ -34,25 +34,25 @@ router.post("/process-signup", (req, res, next)=>{
   if (originalPassword === "" || originalPassword.match(/[0-9]/)=== null) {
     req.flash("error", "Password cannot be blank and require a number");
     res.redirect("/signup");
-    return; 
+    return;
   }
 
 
   const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
   User.create({
-    firstName, 
+    firstName,
     lastName,
-    email, 
-    encryptedPassword, 
-    linkedInAccount, 
-    githubAccount, 
-    behanceAccount, 
-    course, 
-    courseTimeStructure, 
-    IronhackCourseCity, 
-    cohortTime, 
-    currentCity, 
-    employmentStatus, 
+    email,
+    encryptedPassword,
+    linkedInAccount,
+    githubAccount,
+    behanceAccount,
+    course,
+    courseTimeStructure,
+    IronhackCourseCity,
+    cohortTime,
+    currentCity,
+    employmentStatus,
     currentCompany
   })
     .then((userDoc)=>{
@@ -99,9 +99,17 @@ router.post("/process-login", (req, res, next)=>{
       //req.login = passport method for logging a user, it triggers the serialize function
       //
       req.login(userDoc, () => {
+        if(req.user.accountStatus === "unverified"){
+          req.flash("success", "Logged in successfully")
+          res.redirect("/unverified")
+        }
         req.flash("success", "Logged in successfully");
         res.redirect("/");
       });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 61bec211eaa7981cd07a60d9343e46e231e5712b
     })
     .catch(err =>{
       next(err)
@@ -208,4 +216,4 @@ router.post("/process-settings", (req, res, next)=>{
 
 
 
-module.exports = router; 
+module.exports = router;

@@ -18,10 +18,21 @@ router.get('/random', (req, res, next) => {
     res.locals.hackerDoc = hackerDoc;
     res.redirect(`/find-hackers/${hackerDoc._id}`)
   })
-  .catch((err)=>{
+  User.count({accountStatus: "unverified"})
+  .then((number)=> {
+    res.locals.verifyCount = number;
+    res.render('index');
+  })
+  .catch((err) => {
     next(err);
   })
+  
+});
+
+router.get('/unverified', (req, res, next) => {
+  res.render("unverified.hbs")
 })
+
 
 
 module.exports = router;
