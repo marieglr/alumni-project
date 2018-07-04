@@ -10,6 +10,11 @@ router.get('/search', (req, res, next) => {
      res.redirect("/login");
      return;
    }
+  if (req.user.accountStatus !== "verified") {
+    req.flash("error", "You must be verified to see this page");
+    res.redirect("/");
+    return;
+  }
   User.find()
   .then((info) => {
     res.locals.info = info;
@@ -21,15 +26,21 @@ router.get('/search', (req, res, next) => {
 })
 
 router.get("/find-hackers", (req, res, next) => {
+  //prevent users from accessing the search feature
   if (!req.user) {
     req.flash("error", "You must be logged in to see this page!");
      res.redirect("/login");
      return;
    }
+   if (req.user.accountStatus !== "verified") {
+    req.flash("error", "You must be verified to see this page");
+    res.redirect("/");
+    return;
+  }
 
    if (req.query.firstName === "") {
     User.find(
-      {IronhackCourseCity: req.query.IronhackCourseCity})
+      {IronhackCourseCity: req.query.IronhackCourseCity, accountStatus: "verified"})
       .then(data => {
         res.locals.hackerResults = data;
         res.render("alum-views/results.hbs")
@@ -40,7 +51,7 @@ router.get("/find-hackers", (req, res, next) => {
    }
    else if (req.query.IronhackCourseCity === "all"){
     User.find(
-      {firstName:req.query.firstName})
+      {firstName:req.query.firstName, accountStatus: "verified"})
       .then(data => {
         res.locals.hackerResults = data;
         res.render("alum-views/results.hbs")
@@ -52,7 +63,7 @@ router.get("/find-hackers", (req, res, next) => {
    else {
     User.find(
       {$and: [{IronhackCourseCity: req.query.IronhackCourseCity},
-      {firstName:req.query.firstName}]})
+      {firstName:req.query.firstName}], accountStatus: "verified"})
       .then(data => {
         res.locals.hackerResults = data;
         res.render("alum-views/results.hbs")
