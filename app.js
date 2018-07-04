@@ -75,4 +75,7 @@ app.use('/', alumRouter);
 const commentsRouter = require('./routes/comments-router.js');
 app.use('/', commentsRouter);
 
+const adminRouter = require('./routes/admin-router.js');
+app.use('/', adminRouter);
+
 module.exports = app;
