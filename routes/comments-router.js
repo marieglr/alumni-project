@@ -15,6 +15,13 @@ router.post("/find-hackers/:hackerId/process-review", (req, res, next)=>{
 
 
 Comment.create({author, content})
+
+// if (commentDoc.content === "" || commentDoc.content === null) {
+//   req.flash("error", "Your comment is empty");
+//    res.redirect("/login");
+//    return;
+//  }
+
   .then((commentDoc)=>{
     console.log(`added comment to the comments collection`);
     const post = commentDoc;
@@ -26,7 +33,20 @@ Comment.create({author, content})
       )
         .then((userDoc)=>{
           console.log(`updated ${hackerId} with new comment`);
-          res.redirect(`/find-hackers/${hackerId}`)
+          //console.log(userDoc.comments)
+
+          Comment.findById(post)
+          .populate("author")
+          .then((commentDoc)=>{
+            console.log(commentDoc);
+            console.log(userDoc.comments)
+            res.locals.commentDoc= commentDoc;
+            res.redirect(`/find-hackers/${hackerId}`)
+          })
+          .catch(err=>{
+            next(err)
+          });
+
         })
         .catch(err=>{
           next(err)

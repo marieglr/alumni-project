@@ -2,6 +2,7 @@ const express = require("express");
 const passport = require("passport");
 const router = express.Router();
 const User = require("../models/user-model.js");
+const Comment = require("../models/comment-model.js");
 
 router.get('/search', (req, res, next) => {
   if (!req.user) {
@@ -71,14 +72,17 @@ router.get("/find-hackers/:hackerId", (req, res, next) => {
 
    const { hackerId } = req.params;
    User.findById(hackerId)
+   .populate("comments")
    .then((hackerDoc) => {
       res.locals.hackerDoc = hackerDoc;
+      //console.log(hackerDoc)
       res.render("alum-views/hacker-page.hbs")
    })
    .catch((err) => {
       next(err);
    })
 })
+
 
 router.get('/random', (req, res, next) => {
   User.find()

@@ -25,7 +25,7 @@
 
 <hr>
 
-{{#each hackerDoc.comments}}
+{{#each hackerDoc.comments.post}}
 <div class="comment-item">
   <p><a href="/find-hackers/{{this.author._id}}">{{this.author.firstName}} {{this.author.lastName}}</a></p>
   <p>{{this.content}}</p>
