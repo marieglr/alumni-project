@@ -27,10 +27,25 @@
 
 {{#each hackerDoc.comments.post}}
 <div class="comment-item">
-  <p><a href="/find-hackers/{{this.author._id}}">{{this.author.firstName}} {{this.author.lastName}}</a></p>
-  <p>{{this.content}}</p>
+  <div class="metadata">
+    <p class="date">{{this.created_at}}</p>
+    <p><a href="/find-hackers/{{this.author._id}}">{{this.author.firstName}} {{this.author.lastName}}</a></p>
+    <a href="/find-hackers/{{this.author._id}}" class="pic">
+      <img src="{{this.author.pictureUrl}}" alt="User's profile picture">
+    </a>
+  </div>
+  <div class="content">
+    
+    <p>{{this.content}}</p>
+  </div>
 </div>
 {{else}}
 <p>No reviews yet. Be the first to write one :)</p>
 {{/each}}
+
+{{!--rajouter des getters dans le modèle ? pour utiliser moment, require moment puis exemple
+get created_at () {
+  return moment(this.created_at).fromNow()
+} --}}
+
 

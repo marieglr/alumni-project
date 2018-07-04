@@ -5,7 +5,10 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema ({
   firstName: {type: String, required: true},
   lastName: {type: String, required: true},
-  pictureURL: {type: String},
+  pictureURL: {
+    type: String,
+    default: "https://building.co/wp-content/uploads/2016/04/ironhack-logo-1.jpg",
+  },
   email: {
     type: String,
     required: true,
