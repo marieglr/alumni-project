@@ -15,6 +15,10 @@ router.get('/', (req, res, next) => {
   })
 });
 
+router.get('/unverified', (req, res, next) => {
+  res.render("unverified.hbs")
+})
+
 
 
 module.exports = router;

@@ -4,6 +4,16 @@ const router = express.Router();
 const User = require("../models/user-model.js");
 
 router.get("/verify-users", (req, res, next) => {
+  if (!req.user) {
+    req.flash("error", "You must be logged in to see this page!");
+    res.redirect("/login");
+    return;
+   }
+  if (!req.user) {
+  req.flash("error", "You must be logged in to see this page!");
+    res.redirect("/login");
+    return;
+  }
 
   User.find({accountStatus: "unverified"})
   .then((users)=>{

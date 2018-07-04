@@ -3,22 +3,27 @@
 
 
 {{#if connectedUser}}
-<h2>Looking for someone?</h2>
-<button><a href="/search">Find an Ironhacker</a></button>
 
-<button><a href="/random">Discover</a></button>
+  {{#if connectedUser.isVerified}}
+    <h2>Looking for someone?</h2>
+    <button><a href="/search">Find an Ironhacker</a></button>
 
+    <button><a href="/random">Discover</a></button>
+  {{else}}
+    <h2>Cool stuff available soon!</h2>
+  {{/if}}
 
 {{else}}
-<a href="/login">Log In</a>
+  <a href="/login">Log In</a>
 
-<p>Not a registered as an alum yet?</p>
-<p><a href="/signup">Sign up now!</a></p>
+  <p>Not a registered as an alum yet?</p>
+  <p><a href="/signup">Sign up now!</a></p>
 {{/if}}
+
 
 {{#if connectedUser.isAdmin}}
 
-<h3>{{verifyCount}} users waiting to be verified!</h3>
-<p><a href="/verify-users">Verify Users Now!</a></p>
+  <h3>{{verifyCount}} users waiting to be verified!</h3>
+  <p><a href="/verify-users">Verify Users Now!</a></p>
 
 {{/if}}
