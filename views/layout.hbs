@@ -14,8 +14,9 @@
         {{#if connectedUser}}
 
           <strong>{{connectedUser.email}}</strong>
-           <a href="/logout">Log Out</a>
+          <a href="/you">View your page</a>
            <a href="/settings">Update your profile</a>
+           <a href="/logout">Log Out</a>
 
            {{#if connectedUser.isAdmin}}
            <a href="/verify-users">Admin</a>

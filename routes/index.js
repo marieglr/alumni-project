@@ -19,6 +19,9 @@ router.get('/unverified', (req, res, next) => {
   res.render("unverified.hbs")
 })
 
+router.get('/you', (req, res, next) => {
+  res.redirect(`find-hackers/${req.user._id}`)
+})
 
 
 module.exports = router;
