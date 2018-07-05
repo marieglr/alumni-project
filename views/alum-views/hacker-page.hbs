@@ -30,14 +30,14 @@
 <div class="comment-item">
 
   <div class="metadata">
-    <p class="date">{{this.post.created_at}}</p>
+    <p class="date">{{this.post.createdAt}}</p>
     <a href="/find-hackers/{{this.post.author._id}}">{{this.post.author.firstName}} {{this.post.author.lastName}}</a>
     <a href="/find-hackers/{{this.post.author._id}}" class="pic">
       <img src="{{this.post.author.pictureURL}}" alt="User's profile picture">
     </a>
   </div>
 
-  <div class="content">
+ <div class="content">
     <p>{{this.post.content}}</p>
   </div>
 </div>
