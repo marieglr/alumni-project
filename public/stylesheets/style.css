@@ -21,9 +21,6 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block; }
 
-body {
-  line-height: 1; }
-
 ol, ul {
   list-style: none; }
 
@@ -39,12 +36,74 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+header {
+  background-color: #fff;
+  height: 100px;
+  width: 100vw;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+header a {
+  text-transform: uppercase; }
+
+footer {
+  background-color: #1E2334;
+  height: 70px;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  margin: 0; }
+
+footer p {
+  display: flex;
+  justify-content: center;
+  line-height: 3.5;
+  color: grey; }
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 20px 'Roboto', arial, sans-serif;
+  background-color: #2D354C;
+  color: #fff;
+  line-height: 30px;
+  margin: 100px 20% 70px; }
 
 a {
-  color: #00B7FF; }
+  color: #00B7FF;
+  text-decoration: none; }
+
+h1, h2, h3, h4 {
+  font-family: "Roboto Mono", arial, sans-serif;
+  font-weight: bold; }
+
+h1 {
+  font-size: 4em;
+  letter-spacing: 6px; }
+
+h2 {
+  font-size: 2.5em;
+  letter-spacing: 3px; }
+
+h3 {
+  font-size: 2em;
+  letter-spacing: 1.5px; }
+
+h4 {
+  font-size: 1.5em; }
+
+button {
+  color: white;
+  background-color: #2DC5FA;
+  padding: 20px 3em;
+  border-radius: 5px;
+  font-size: inherit;
+  border: none; }
+
+button a {
+  color: #fff; }
 
 [class$="-message"] {
   border: 3px solid;

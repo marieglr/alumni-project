@@ -59,7 +59,7 @@ app.use(flash());
 passportSetup(app);
 
 // default value for title local
-app.locals.title = 'Ironhack Alumnis - Project 2 by Meri and Marie';
+app.locals.title = 'IRONSTALK';
 
 
 
