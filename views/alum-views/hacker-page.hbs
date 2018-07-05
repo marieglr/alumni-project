@@ -42,13 +42,16 @@
     </div>
   </div>
 
+
+<form action="/find-hackers/{{../hackerDoc._id}}/{{this.post._id}}/delete">
+  <button>Delete Comment</button>
+</form>
+
+</div>
+
 {{else}}
   <p>No reviews yet. Be the first to write one :)</p>
 {{/each}}
 
-{{!--rajouter des getters dans le modèle ? pour utiliser moment, require moment puis exemple
-get created_at () {
-  return moment(this.createdAt).fromNow()
-} --}}
 
 

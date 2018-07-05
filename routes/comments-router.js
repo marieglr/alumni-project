@@ -48,11 +48,19 @@ Comment.create({author, content})
 
 //DELETE COMMENTS
 
-router.get("/book/:bookId/delete", (req, res, next)=>{
-  const {bookId} = req.params;
-  Book.findByIdAndRemove(bookId)
-    .then((bookDoc)=>{
-      res.redirect("/books");
+router.get("/find-hackers/:hackerId/:postId/delete", (req, res, next)=>{
+  const {postId, hackerId} = req.params;
+
+  if (req.user.role !== "admin") {
+    req.flash("error", "To delete a comment you wrote, please contact the admins");
+    res.redirect(`/find-hackers/${hackerId}`);
+     return;
+   }
+
+  Comment.findByIdAndRemove(postId)
+    .then((postDoc)=>{
+      req.flash("success", "We deleted your comment!");
+      res.redirect(`/find-hackers/${hackerId}`);
     })
     .catch(err=>{
       next(err);
