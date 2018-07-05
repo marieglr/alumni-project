@@ -36,6 +36,7 @@ const userSchema = new Schema ({
   linkedInAccount: {type: String},
   githubAccount: {type: String},
   behanceAccount: {type: String},
+  biography: {type: String},
   employmentStatus: {
     type: String,
     enum: ["Currently working", "Looking for a job", "Neither"],
