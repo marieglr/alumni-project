@@ -49,8 +49,9 @@ table {
 	border-spacing: 0;
 }
 
-//GENERAL WEBSITE PROPERTIES
+//LAYOUT
 //-----------------------------------------------------------------------------------------------------------------------------------
+
 
 header {
   background-color: #fff;
@@ -64,6 +65,27 @@ header {
 
 header a {
   text-transform: uppercase;
+  padding: 0 15px;
+}
+
+nav {
+  line-height: 100px;
+}
+
+nav p {
+  color: black;
+  display: inline;
+}
+
+nav .rightLinks {
+  position: absolute;
+  right: 15px;
+  float: right;
+}
+
+nav .leftLinks {
+  position: absolute;
+  left: 15px;
 }
 
 footer {
@@ -84,8 +106,10 @@ footer p {
   color: grey;
 }
 
-//LAYOUT
+
+//GENERAL WEBSITE STYLES
 //-----------------------------------------------------------------------------------------------------------------------------------
+
 
 body {
   font: 20px 'Roboto', arial, sans-serif;
@@ -138,7 +162,6 @@ button a {
 }
 
 [class$="-message"]{
-  border: 3px solid;
   border-radius: 10px;
   padding: 10px;
 }

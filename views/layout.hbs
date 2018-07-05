@@ -9,13 +9,17 @@
   </head>
   <body>
   <header>
-      <h1>IRONSTALK</h1>
+    
 
       <nav>
+        <div class="leftLinks">
+          <p>IRONSTALK</p>
         <a href="/">Home</a>
-
+</div>
+  <div class="rightLinks">
+          
         {{#if connectedUser}}
-
+          
           <strong>{{connectedUser.email}}</strong>
           <a href="/you">View your page</a>
            <a href="/settings">Update your profile</a>
@@ -24,6 +28,8 @@
            {{#if connectedUser.isAdmin}}
            <a href="/verify-users">Admin</a>
            {{/if}}
+
+           </div>
         {{else}}
          <a href="/signup">Sign Up</a>
         <a href="/login">Log In</a>

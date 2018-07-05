@@ -1,2 +1,9 @@
+.loginPage {
+  display: flex;
+  width: 200px;
+  height: 300px; }
+
+.loginWrapper {
+  margin: auto; }
 
 /*# sourceMappingURL=maStyle.css.map */
