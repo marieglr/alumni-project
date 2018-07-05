@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const moment = require("moment");
 
 const Schema = mongoose.Schema;
 
@@ -65,6 +66,9 @@ const userSchema = new Schema ({
   timestamps : true,
 })
 
+userSchema.get(function(created_at){
+  return moment(this.created_at).fromNow()
+});
 
 userSchema.virtual("isAdmin").get(function(){
   return this.role === "admin";

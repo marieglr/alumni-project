@@ -28,18 +28,20 @@
 {{#each hackerDoc.comments}}
 
 <div class="comment-item">
+
   <div class="metadata">
-    <p class="date">{{this.created_at}}</p>
-    <p><a href="/find-hackers/{{this.author._id}}">{{this.author.firstName}} {{this.author.lastName}}</a></p>
-    <a href="/find-hackers/{{this.author._id}}" class="pic">
-      <img src="{{this.author.pictureUrl}}" alt="User's profile picture">
+    <p class="date">{{this.post.created_at}}</p>
+    <a href="/find-hackers/{{this.post.author._id}}">{{this.post.author.firstName}} {{this.post.author.lastName}}</a>
+    <a href="/find-hackers/{{this.post.author._id}}" class="pic">
+      <img src="{{this.post.author.pictureURL}}" alt="User's profile picture">
     </a>
   </div>
+
   <div class="content">
-    
-    <p>{{this.content}}</p>
+    <p>{{this.post.content}}</p>
   </div>
 </div>
+
 {{else}}
   <p>No reviews yet. Be the first to write one :)</p>
 {{/each}}
