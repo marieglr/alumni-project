@@ -23,7 +23,7 @@ const storage =
     cloudinary,
     folder: "user-pictures"
   });
-  
+
 const uploader = multer({ storage });
 
 
@@ -150,102 +150,6 @@ router.get("/logout", (req, res, next)=>{
 //UPDATE INFO (settings page)
 //---------------------------------------------------------------------------------------------------------
 
-
-router.get("/settings", (req, res, next)=>{
-  //redirect away if user is not logged in
-  if (!req.user){
-    req.flash("error", "You must be logged in");
-    req.redirect("/login");
-    return;
-  }
-  res.render("auth-views/settings-page.hbs");
-});
-
-router.post("/process-settings", 
-  uploader.single("pictureUpload"),
- (req, res, next)=>{
-
-  //redirect away if user is not logged in
-  if (!req.user){
-    req.flash("error", "You must be logged in");
-    res.redirect("/login");
-    return;
-  }
-
-
-  //let { newSecure_url } = req.file;
-
-  const { firstName, 
-    lastName,
-    //pictureUrl: newSecure_url,
-    email, 
-    linkedInAccount, 
-    githubAccount, 
-    behanceAccount, 
-    course, 
-    courseTimeStructure, 
-    IronhackCourseCity, 
-    cohortTime, 
-    currentCity, 
-    employmentStatus, 
-    currentCompany,
-    oldPassword,
-    newPassword} = req.body;
-
-  let changes = {
-    firstName,
-    lastName,
-    //pictureUrl: newSecure_url,
-    email, 
-    linkedInAccount, 
-    githubAccount, 
-    behanceAccount, 
-    course, 
-    courseTimeStructure, 
-    IronhackCourseCity, 
-    cohortTime, 
-    currentCity, 
-    employmentStatus, 
-    currentCompany,
-  };
-
-
-  if (oldPassword && newPassword) {
-    if (!bcrypt.compareSync(oldPassword, req.user.encryptedPassword)){
-      req.flash("error", "Old password incorrect");
-      res.redirect("/settings");
-      return;
-    }
-
-    const encryptedPassword = bcrypt.hashSync(newPassword, 10);
-    changes = {
-      firstName,
-      lastName,
-      email,
-      linkedInAccount,
-      githubAccount,
-      behanceAccount,
-      course,
-      courseTimeStructure,
-      IronhackCourseCity,
-      cohortTime,
-      currentCity,
-      employmentStatus,
-      currentCompany,
-      encryptedPassword
-    }
-  }
-
-  User.findByIdAndUpdate(
-    req.user._id,
-    {$set: changes},
-  )
-    .then((userDoc)=> {
-      req.flash("success", "Settings saved successfully");
-      res.redirect("/")
-    })
-    .catch(err=>{next(err)})
-})
 
 
 

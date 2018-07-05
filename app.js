@@ -78,4 +78,7 @@ app.use('/', commentsRouter);
 const adminRouter = require('./routes/admin-router.js');
 app.use('/', adminRouter);
 
+const userRouter = require('./routes/user-router.js');
+app.use('/', userRouter);
+
 module.exports = app;
