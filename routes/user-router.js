@@ -66,48 +66,13 @@ router.post("/process-settings",
   fields.forEach((oneField)=>{
     const updateItem = req.body[oneField];
 
-    if (updateItem) {
+    if (updateItem === "2018-05"){
+      return
+    }
+    else if (updateItem) {
       changes[oneField] = updateItem;
     }
   })
-
-
-  //let { newSecure_url } = req.file;
-
-  // const { firstName,
-  //   lastName,
-  //   //pictureUrl: newSecure_url,
-  //   email,
-  //   linkedInAccount,
-  //   githubAccount,
-  //   behanceAccount,
-  //   course,
-  //   courseTimeStructure,
-  //   IronhackCourseCity,
-  //   cohortTime,
-  //   currentCity,
-  //   employmentStatus,
-  //   currentCompany,
-  //   oldPassword,
-  //   newPassword} = req.body;
-
-  // let changes = {
-  //   firstName,
-  //   lastName,
-  //   //pictureUrl: newSecure_url,
-  //   email,
-  //   linkedInAccount,
-  //   githubAccount,
-  //   behanceAccount,
-  //   course,
-  //   courseTimeStructure,
-  //   IronhackCourseCity,
-  //   cohortTime,
-  //   currentCity,
-  //   employmentStatus,
-  //   currentCompany,
-  // };
-
 
   if (changes.oldPassword && changes.newPassword) {
     if (!bcrypt.compareSync(changes.oldPassword, req.user.encryptedPassword)){
