@@ -46,7 +46,6 @@ router.post("/process-settings",
 
   const fields = [ 'firstName',
   'lastName',
-  //pictureUrl: newSecure_url,
   'email',
   'linkedInAccount',
   'githubAccount',
@@ -82,28 +81,14 @@ router.post("/process-settings",
     }
 
     const encryptedPassword = bcrypt.hashSync(changes.newPassword, 10);
-  //   changes = {
-  //     firstName,
-  //     lastName,
-  //     email,
-  //     linkedInAccount,
-  //     githubAccount,
-  //     behanceAccount,
-  //     course,
-  //     courseTimeStructure,
-  //     IronhackCourseCity,
-  //     cohortTime,
-  //     currentCity,
-  //     employmentStatus,
-  //     currentCompany,
-  //     encryptedPassword
-  //   }
-  // }
   }
+
+  const { pictureURL } = req.body;
+  const { secure_url } = req.file;
 
   User.findByIdAndUpdate(
     req.user._id,
-    {$set: changes},
+    {$set: {changes, pictureURL: secure_url}},
   )
     .then((userDoc)=> {
       req.flash("success", "Settings saved successfully");
