@@ -6,3 +6,8 @@ npm-debug.log
 
 # Environment Variables should NEVER be published
 .env
+
+mpStyle.css
+mpStyle.css.map
+maStyle.css
+maStyle.css.map
