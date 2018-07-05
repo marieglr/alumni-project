@@ -66,11 +66,6 @@ const userSchema = new Schema ({
   timestamps : true,
 })
 
-// userSchema.prototype.get(function(createdAt){
-//   return moment(this.createdAt).fromNow()
-// });
-
-
 
 userSchema.virtual("isAdmin").get(function(){
   return this.role === "admin";

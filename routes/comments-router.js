@@ -60,10 +60,11 @@ router.get("/find-hackers/:hackerId/:postId/delete", (req, res, next)=>{
   Comment.findByIdAndRemove(postId)
     .then((postDoc)=>{
       req.flash("success", "We deleted your comment!");
-     // User.findByIdAndUpdate({"_id" : req.params.hackerId}, {$pullAll : {comments : [req.params.postId]}})
-     User.findByIdAndUpdate(req.params.hackerId, {$pull : {comments :{post : req.params.postId}}}).then(user => {
-       console.log(user.comments.length)
-     }).catch(err=> console.log(err))
+     User.findByIdAndUpdate(req.params.hackerId, 
+      {$pull : {comments :{post : req.params.postId}}})
+        .then(user => {
+        })
+        .catch(err=> console.log(err))
 
       res.redirect(`/find-hackers/${hackerId}`);
     })
@@ -71,17 +72,6 @@ router.get("/find-hackers/:hackerId/:postId/delete", (req, res, next)=>{
       next(err);
     })
 
-
-    // User.findByIdAndUpdate(
-    //   hackerId,
-    //   {$push: {comments: {post}}}, 
-    //   {runValidators: true}
-    // )
-    //   .then((userDoc)=>{
-    //     console.log(`updated ${hackerId} with new comment`);
-    //     res.redirect(`/find-hackers/${hackerId}`);
-    //   })
-  
 })
 
 

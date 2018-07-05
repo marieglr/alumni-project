@@ -85,7 +85,6 @@ router.get("/find-hackers/:hackerId", (req, res, next) => {
    User.findById(hackerId)
    .populate({ path: "comments.post", populate: { path: "author" } })
    .then((hackerDoc) => {
-     console.log( hackerDoc );
       res.locals.hackerDoc = hackerDoc;
       res.render("alum-views/hacker-page.hbs")
    })
