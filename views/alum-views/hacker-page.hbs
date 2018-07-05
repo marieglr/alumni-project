@@ -27,20 +27,20 @@
 
 {{#each hackerDoc.comments}}
 
-<div class="comment-item">
+  <div class="comment-item">
 
-  <div class="metadata">
-    <p class="date">{{this.post.createdAt}}</p>
-    <a href="/find-hackers/{{this.post.author._id}}">{{this.post.author.firstName}} {{this.post.author.lastName}}</a>
-    <a href="/find-hackers/{{this.post.author._id}}" class="pic">
-      <img src="{{this.post.author.pictureURL}}" alt="User's profile picture">
-    </a>
-  </div>
+    <div class="metadata">
+      <p class="date">{{this.post.created_at}}</p>
+      <a href="/find-hackers/{{this.post.author._id}}">{{this.post.author.firstName}} {{this.post.author.lastName}}</a>
+      <a href="/find-hackers/{{this.post.author._id}}" class="pic">
+        <img src="{{this.post.author.pictureURL}}" alt="User's profile picture">
+      </a>
+    </div>
 
- <div class="content">
-    <p>{{this.post.content}}</p>
+  <div class="content">
+      <p>{{this.post.content}}</p>
+    </div>
   </div>
-</div>
 
 {{else}}
   <p>No reviews yet. Be the first to write one :)</p>
@@ -48,7 +48,7 @@
 
 {{!--rajouter des getters dans le modèle ? pour utiliser moment, require moment puis exemple
 get created_at () {
-  return moment(this.created_at).fromNow()
+  return moment(this.createdAt).fromNow()
 } --}}
 
 

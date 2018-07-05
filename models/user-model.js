@@ -70,6 +70,11 @@ const userSchema = new Schema ({
 //   return moment(this.createdAt).fromNow()
 // });
 
+
+userSchema.virtual("created_at").get(function(){
+  return moment(this.createdAt).fromNow();
+});
+
 userSchema.virtual("isAdmin").get(function(){
   return this.role === "admin";
 });
