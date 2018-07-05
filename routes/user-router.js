@@ -46,11 +46,11 @@ router.post("/process-settings",
 
   const fields = [ 'firstName',
   'lastName',
-  //pictureUrl: newSecure_url,
   'email',
   'linkedInAccount',
   'githubAccount',
   'behanceAccount',
+  'biography',
   'course',
   'courseTimeStructure',
   'IronhackCourseCity',
@@ -80,30 +80,21 @@ router.post("/process-settings",
       res.redirect("/settings");
       return;
     }
-
     const encryptedPassword = bcrypt.hashSync(changes.newPassword, 10);
-  //   changes = {
-  //     firstName,
-  //     lastName,
-  //     email,
-  //     linkedInAccount,
-  //     githubAccount,
-  //     behanceAccount,
-  //     course,
-  //     courseTimeStructure,
-  //     IronhackCourseCity,
-  //     cohortTime,
-  //     currentCity,
-  //     employmentStatus,
-  //     currentCompany,
-  //     encryptedPassword
-  //   }
-  // }
+  }
+
+  const { pictureURL } = req.body;
+  let secure_url = req.user.pictureURL;
+
+  if({pictureURL} === ""){
+    secure_url = secure_url.req.file;
+  } else {
+    secure_url = req.user.pictureURL
   }
 
   User.findByIdAndUpdate(
     req.user._id,
-    {$set: changes},
+    {$set: changes, pictureURL: secure_url},
   )
     .then((userDoc)=> {
       req.flash("success", "Settings saved successfully");
@@ -115,21 +106,20 @@ router.post("/process-settings",
 })
 
 
+// router.get("/about-you", (req, res, next) => {
+//   res.render("user-views/edit-page.hbs");
+// })
 
-router.get("/about-you", (req, res, next) => {
-  res.render("user-views/edit-page.hbs");
-})
+// router.post("/edit-about/:userId", (req, res, next) => {
+//   const { userId } = req.params;
+//   const { bio } = req.body;
 
-router.post("/edit-about/:userId", (req, res, next) => {
-  const { userId } = req.params;
-  const { bio } = req.body;
+//   User.findByIdAndUpdate(
+//     userId,
+//     { $set: {about: {bio, project} } },
 
-  User.findByIdAndUpdate(
-    userId,
-    { $set: {about: {bio, project} } },
-
-  )
-})
+//   )
+// })
 
 
 module.exports = router;
