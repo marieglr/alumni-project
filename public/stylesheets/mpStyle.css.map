@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "mpStyle.css",
+	"sources": [
+		"mpStyle.scss"
+	],
+	"names": [],
+	"mappings": ""
+}

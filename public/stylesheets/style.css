@@ -1,3 +1,44 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote,
+a, address, em, img, q, s,
+small, strong, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, section, summary,
+time {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
@@ -7,13 +48,15 @@ a {
 
 [class$="-message"] {
   border: 3px solid;
-  border-radius: 3px;
+  border-radius: 10px;
   padding: 10px; }
 
 .success-message {
-  color: chartreuse; }
+  color: #172928;
+  background-color: #72C0BC; }
 
 .error-message {
-  color: crimson; }
+  color: #750f0f;
+  background-color: #F67373; }
 
 /*# sourceMappingURL=style.css.map */
