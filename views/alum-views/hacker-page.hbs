@@ -26,8 +26,8 @@
 <hr>
 
 {{#each hackerDoc.comments}}
-<p>{{this}}</p>
-{{!-- <div class="comment-item">
+
+<div class="comment-item">
   <div class="metadata">
     <p class="date">{{this.created_at}}</p>
     <p><a href="/find-hackers/{{this.author._id}}">{{this.author.firstName}} {{this.author.lastName}}</a></p>
@@ -39,7 +39,7 @@
     
     <p>{{this.content}}</p>
   </div>
-</div> --}}
+</div>
 {{else}}
   <p>No reviews yet. Be the first to write one :)</p>
 {{/each}}
