@@ -15,7 +15,7 @@ router.post("/find-hackers/:hackerId/process-review", (req, res, next)=>{
 
   if (content === "" || content === null) {
     req.flash("error", "Your comment is empty");
-     res.redirect("/login");
+    res.redirect(`/find-hackers/${hackerId}`);
      return;
    }
 
