@@ -55,7 +55,7 @@ const userSchema = new Schema ({
     {
       post: {
         type: Schema.Types.ObjectId,
-        ref: "User",
+        ref: "Comment",
         required: true,
       },
       //content: {type: String, required: true, maxlength: 1200}

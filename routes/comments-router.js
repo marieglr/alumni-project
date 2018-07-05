@@ -25,6 +25,8 @@ Comment.create({author, content})
   .then((commentDoc)=>{
     console.log(`added comment to the comments collection`);
     const post = commentDoc;
+    console.log( "NEW COMMENT HERE" );
+    console.log(commentDoc);
 
       User.findByIdAndUpdate(
         hackerId,
@@ -34,18 +36,21 @@ Comment.create({author, content})
         .then((userDoc)=>{
           console.log(`updated ${hackerId} with new comment`);
           //console.log(userDoc.comments)
+          console.log( "USER HERE" );
+          console.log(userDoc)
 
-          Comment.findById(post)
-          .populate("author")
-          .then((commentDoc)=>{
-            console.log(commentDoc);
-            console.log(userDoc.comments)
-            res.locals.commentDoc= commentDoc;
-            res.redirect(`/find-hackers/${hackerId}`)
-          })
-          .catch(err=>{
-            next(err)
-          });
+          res.redirect(`/find-hackers/${hackerId}`);
+
+          // Comment.findById(post._id)
+          // .populate("author")
+          // .then((commentDoc)=>{
+          //   // console.log(commentDoc);
+          //   res.locals.commentDoc= commentDoc;
+           
+          // })
+          // .catch(err=>{
+          //   next(err)
+          // });
 
         })
         .catch(err=>{
@@ -53,9 +58,9 @@ Comment.create({author, content})
        })
 
       })
-      .catch(err=>{
-        next(err)
-      })
+  .catch(err=>{
+    next(err)
+  })
 });
 
 // Comment.findById(post)

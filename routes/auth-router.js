@@ -36,10 +36,13 @@ router.get("/signup", (req, res, next)=>{
 router.post("/process-signup",
 uploader.single("pictureUpload"),
 (req, res, next)=>{
+  // res.send({ file: req.file, body: req.body });
+  // return;
   const {
     firstName,
     lastName,
     email,
+    pictureUrl,
     originalPassword,
     linkedInAccount,
     githubAccount,
@@ -53,44 +56,42 @@ uploader.single("pictureUpload"),
     currentCompany
   } = req.body;
 
-  // let { secure_url } = req.file;
+  let { secure_url } = req.file;
 
-  // //password can't be blank and require numbers
-  // if (originalPassword === "" || originalPassword.match(/[0-9]/)=== null) {
-  //   req.flash("error", "Password cannot be blank and require a number");
-  //   res.redirect("/signup");
-  //   return;
-  // }
+  //password can't be blank and require numbers
+  if (originalPassword === "" || originalPassword.match(/[0-9]/)=== null) {
+    req.flash("error", "Password cannot be blank and require a number");
+    res.redirect("/signup");
+    return;
+  }
 
 
-  // const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
-  // User.create({
-  //   firstName,
-  //   lastName,
-  //   pictureUrl: secure_url,
-  //   email,
-  //   encryptedPassword,
-  //   linkedInAccount,
-  //   githubAccount,
-  //   behanceAccount,
-  //   course,
-  //   courseTimeStructure,
-  //   IronhackCourseCity,
-  //   cohortTime,
-  //   currentCity,
-  //   employmentStatus,
-  //   currentCompany
-  // })
-  //   .then((userDoc)=>{
-  //   req.flash("success", "Signed up successfully, try logging in");
-  //     res.redirect("/");
-  //   })
-  //   .catch((err)=>{
-  //     next(err);
-  //   });
+  const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
+  User.create({
+    firstName,
+    lastName,
+    pictureUrl: secure_url,
+    email,
+    encryptedPassword,
+    linkedInAccount,
+    githubAccount,
+    behanceAccount,
+    course,
+    courseTimeStructure,
+    IronhackCourseCity,
+    cohortTime,
+    currentCity,
+    employmentStatus,
+    currentCompany
+  })
+    .then((userDoc)=>{
+    req.flash("success", "Signed up successfully, try logging in");
+      res.redirect("/");
+    })
+    .catch((err)=>{
+      next(err);
+    });
 
-  res.send(req.file);
-  //res.send(req.body);
 });
 
 //LOG IN
@@ -171,20 +172,6 @@ router.post("/process-settings",
     return;
   }
 
-<<<<<<< HEAD
-  const { firstName,
-    lastName,
-    email,
-    linkedInAccount,
-    githubAccount,
-    behanceAccount,
-    course,
-    courseTimeStructure,
-    IronhackCourseCity,
-    cohortTime,
-    currentCity,
-    employmentStatus,
-=======
 
   //let { newSecure_url } = req.file;
 
@@ -201,7 +188,6 @@ router.post("/process-settings",
     cohortTime, 
     currentCity, 
     employmentStatus, 
->>>>>>> 9b6aaea2b1bc828e84cdbbb4ec1fcb8515436b7b
     currentCompany,
     oldPassword,
     newPassword} = req.body;
@@ -209,18 +195,6 @@ router.post("/process-settings",
   let changes = {
     firstName,
     lastName,
-<<<<<<< HEAD
-    email,
-    linkedInAccount,
-    githubAccount,
-    behanceAccount,
-    course,
-    courseTimeStructure,
-    IronhackCourseCity,
-    cohortTime,
-    currentCity,
-    employmentStatus,
-=======
     //pictureUrl: newSecure_url,
     email, 
     linkedInAccount, 
@@ -232,7 +206,6 @@ router.post("/process-settings",
     cohortTime, 
     currentCity, 
     employmentStatus, 
->>>>>>> 9b6aaea2b1bc828e84cdbbb4ec1fcb8515436b7b
     currentCompany,
   };
 
