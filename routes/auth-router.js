@@ -125,9 +125,7 @@ router.post("/process-login", (req, res, next)=>{
         return;
       }
 
-      //xe are ready to log the user in if we are there now
-      //req.login = passport method for logging a user, it triggers the serialize function
-      //
+    
       req.login(userDoc, () => {
         if(req.user.accountStatus === "unverified"){
           req.flash("success", "Logged in successfully")
@@ -149,8 +147,6 @@ router.get("/logout", (req, res, next)=>{
   res.redirect("/");
 })
 
-//UPDATE INFO (settings page)
-//---------------------------------------------------------------------------------------------------------
 
 
 

@@ -33,19 +33,19 @@
       <p class="date">{{this.post.created_at}}</p>
       <a href="/find-hackers/{{this.post.author._id}}">{{this.post.author.firstName}} {{this.post.author.lastName}}</a>
       <a href="/find-hackers/{{this.post.author._id}}" class="pic">
-        <img src="{{this.post.author.pictureURL}}" alt="User's profile picture">
+        <img src="{{this.post.author.pictureURL}}" alt="{{this.post.author.firstName}} {{this.post.author.lastName}}">
       </a>
     </div>
 
-  <div class="content">
-      <p>{{this.post.content}}</p>
+    <div class="content">
+        <p>{{this.post.content}}</p>
+      </div>
     </div>
-  </div>
 
 
-<form action="/find-hackers/{{../hackerDoc._id}}/{{this.post._id}}/delete">
-  <button>Delete Comment</button>
-</form>
+    <form action="/find-hackers/{{../hackerDoc._id}}/{{this.post._id}}/delete">
+      <button>Delete Comment</button>
+    </form>
 
 </div>
 
