@@ -74,6 +74,10 @@ router.post("/process-settings",
     }
   })
 
+  if(req.file){
+    changes.pictureURL = req.file.secure_url;
+  }
+
   if (changes.oldPassword && changes.newPassword) {
     if (!bcrypt.compareSync(changes.oldPassword, req.user.encryptedPassword)){
       req.flash("error", "Old password incorrect");
@@ -83,18 +87,9 @@ router.post("/process-settings",
     const encryptedPassword = bcrypt.hashSync(changes.newPassword, 10);
   }
 
-  const { pictureURL } = req.body;
-  let secure_url = req.user.pictureURL;
-
-  if({pictureURL} === ""){
-    secure_url = secure_url.req.file;
-  } else {
-    secure_url = req.user.pictureURL
-  }
-
   User.findByIdAndUpdate(
     req.user._id,
-    {$set: changes, pictureURL: secure_url},
+    {$set: changes},
   )
     .then((userDoc)=> {
       req.flash("success", "Settings saved successfully");
