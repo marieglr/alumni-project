@@ -58,7 +58,6 @@ const userSchema = new Schema ({
         ref: "Comment",
         required: true,
       },
-      //content: {type: String, required: true, maxlength: 1200}
     }
   ],
   encryptedPassword: {type: String},
