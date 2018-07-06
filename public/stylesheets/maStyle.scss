@@ -2,10 +2,7 @@
 // medium blue: #2D354C 
 // light blue: #32C3FF 
 
-// HOMEPAGE 
-
-
-// LOGIN PAGE
+//GENERAL CLASSES
 //-----------------------------------------------------------------------------------------------------------------------------------
 
 .centerflex {
@@ -14,13 +11,22 @@
   flex-direction: column;
 }
 
+.flexStart{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+// LOGIN PAGE
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+
 .loginPage {
   justify-content: center;
   height: 100vh; 
 }
 
 .loginPage .loginWrapper {
-
    width: 200px;
   height: 250px;
   justify-content: space-around;
@@ -28,15 +34,14 @@
 }
 
 .loginPage form {
-    justify-content: center;
+  justify-content: center;
   height: 150px;
 }
 
-.flexStart{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
+
+//SIGN UP AND SETTINGS PAGES
+//-----------------------------------------------------------------------------------------------------------------------------------
+
 
 .signupPage, .settingsPage {
   height: 1500px;
@@ -53,3 +58,44 @@
 .settingsPage p {
   line-height: 60px;
 }
+
+//SEARCH PAGE
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+.searchPage {
+  justify-content: center;
+  height: 100vh; 
+}
+
+.searchBox {
+  width: 800px;
+  height: 300px;
+  justify-content: space-around;
+}
+
+.searchPage form {
+  height: 150px;
+  justify-content: space-around;
+}
+
+.searchPage .searchFields {
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+}
+
+.searchPage .nameInput {
+  height: 56px;
+  border: 1px solid #f5f5f5;
+  width: 230px;
+  color: #F49102;
+  font-size: 1.2em;
+}
+
+// .comment-box {
+//   height: 56px;
+//   border: 1px solid #f5f5f5;
+//   width: 400px;
+//   color: #F49102;
+//   font-size: 1.2em;
+// }

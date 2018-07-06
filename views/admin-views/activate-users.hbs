@@ -3,6 +3,7 @@
     {{#each users}}
     <section class="space-around">
       <li><h4>{{this.firstName}} {{this.lastName}} would like to be verified</h4></li>
+      <p><em>{{this.firstName}} indicated she/he attended the {{this.course}} course  in {{this.cohort}} in {{this.IronhackCourseCity}}.</em></p>
 
       <li><a href="/overview/{{this._id}}">View profile in detail</a></li>
 
