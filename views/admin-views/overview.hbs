@@ -1,16 +1,26 @@
-<h2>Overview</h2>
-<img src="{{userDoc.imageUrl}}">
-<ul>
-  <li>Name: {{userDoc.firstName}} {{userDoc.lastName}}</li>
-  <li>Email: {{userDoc.email}}</li>
-  <li>Ironhack Campus: {{userDoc.IronhackCourseCity}}</li>
-  <li>Course: {{userDoc.course}}, {{userDoc.courseTimeStructure}}</li>
-  <li>Cohort: {{userDoc.cohortTime}}</li>
-</ul>
+<div class="mp-cont-flex">
+  <h2>Overview</h2>
+  <div class="mp-box-flex">
 
-<form method="POST" action="/verify-user/{{userDoc._id}}">
-<input type="hidden" name="userId" value={{userDoc._id}}>
-<button>Activate User</button>
-</form>
 
-<p><a href="/verify-users">Return to list of unverified users</a></p>
+    <img src="{{userDoc.pictureURL}}">
+
+    <div class="info-box">
+      <ul>
+        <li><em>Name:</em> {{userDoc.firstName}} {{userDoc.lastName}}</li>
+        <li><em>Email:</em> {{userDoc.email}}</li>
+        <li><em>Ironhack Campus:</em> {{userDoc.IronhackCourseCity}}</li>
+        <li><em>Course:</em> {{userDoc.course}}, {{userDoc.courseTimeStructure}}</li>
+        {{!-- <li>Cohort: {{userDoc.cohortTime}}</li> --}}
+      </ul>
+
+      <form method="POST" action="/verify-user/{{userDoc._id}}">
+      <input type="hidden" name="userId" value={{userDoc._id}}>
+      <button>Activate User</button>
+      </form>
+
+      <p>
+        <a href="/verify-users">Return to list of unverified users</a></p>
+    </div>
+  </div>
+</div>

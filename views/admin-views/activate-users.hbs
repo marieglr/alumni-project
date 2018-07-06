@@ -1,20 +1,24 @@
-<ul>
-  {{#each users}}
+<div class="mp-box">
+  <ul>
+    {{#each users}}
+    <section class="space-around">
+      <li><h4>{{this.firstName}} {{this.lastName}} would like to be verified</h4></li>
 
-  <li><h3>{{this.firstName}} {{this.lastName}} would like to be verified</h3></li>
+      <li><a href="/overview/{{this._id}}">View profile in detail</a></li>
 
-  <li><a href="/overview/{{this._id}}">View profile in detail</a></li>
-  <li>
-    <form method="POST" action="/verify-user/{{this._id}}">
-      <input type="hidden" name="userId" value={{this._id}}>
-      <button>Verify User</button>
-    </form>
-  </li>
+      <li>
+        <form method="POST" action="/verify-user/{{this._id}}">
+          <input type="hidden" name="userId" value={{this._id}}>
+          <button>Verify User</button>
+        </form>
+      </li>
+    </section>
 
-  {{else}}
+    {{else}}
 
-    <li><h2>No users to verify</h2></li>
+      <li><h2>No users to verify</h2></li>
 
-  {{/each}}
+    {{/each}}
 
-</ul>
+  </ul>
+</div>

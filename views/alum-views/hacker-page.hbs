@@ -1,57 +1,86 @@
-<h2>{{hackerDoc.firstName}} {{hackerDoc.lastName}}</h2>
+<div class="mp-cont-flex">
+  <div class="mp-box-flex">
+    <img class="profile-img" src="{{hackerDoc.pictureURL}}" alt="User photo">
+    <div class="info-box2">
+        <h2>{{hackerDoc.firstName}} {{hackerDoc.lastName}}</h2>
+      <p><em>Formally a student in the {{hackerDoc.course}} course in {{hackerDoc.IronhackCourseCity}}</em></p>
 
-<p>{{hackerDoc.firstName}} was a student in the {{hackerDoc.course}} course in {{hackerDoc.IronhackCourseCity}}</p>
+      <h3>About</h3>
+      <p>{{hackerDoc.biography}}</p>
 
 
-<p>Work status: {{hackerDoc.employmentStatus}}</p>
+      <h3>Work status</h3>
+      {{#if hackerDoc.isEmployed}}
+        <p>Currently working @ {{hackerDoc.currentCompany}}</p>
+      {{else}}
+        <p>{{hackerDoc.employmentStatus}}</p>
+      {{/if}}
 
-{{#if hackerDoc.isEmployed}}
-  <p>Currently working @ {{hackerDoc.currentCompany}}</p>
-{{/if}}
 
-<hr>
+      <h3>Contact</h3>
+      {{!-- {{#if hackerDoc.githubAccount}} --}}
+        <p class="icon-set"><img class="icon" src="../images/github_icon.svg" alt="github icon"><a href="{{hackerDoc.githubAccount}}">Projects, labs, and general madness?</a></p>
+      {{!-- {{/if}} --}}
 
-<p>Have a question for {{hackerDoc.firstName}}?</p>
-<p>Ask below!</p>
+      {{!-- {{#if hackerDoc.behanceAccount}} --}}
+        <p class="icon-set"><img class="icon" src="../images/behance_icon.svg" alt="behance icon"><a href="{{hackerDoc.behanceAccount}}">Did you say portfolio?</a></p>
+      {{!-- {{/if}} --}}
 
-<form method="POST" action="/find-hackers/{{hackerDoc._id}}/process-review">
+      {{!-- {{#if hackerDoc.linkedInAccount}} --}}
+        <p class="icon-set"><img class="icon" src="../images/linkedin_icon.png" alt="linkedin icon"><a href="{{hackerDoc.linkedInAccount}}">What's my background, you ask?</a></p>
+      {{!-- {{/if}} --}}
 
-        <label for="content">Comment</label>
-        <input type="textarea" name="content">
-        <br>
-
-        <button>Post Comment</button>
-</form>
-
-<hr>
-
-{{#each hackerDoc.comments}}
-
-  <div class="comment-item">
-
-    <div class="metadata">
-      <p class="date">{{this.post.created_at}}</p>
-      <a href="/find-hackers/{{this.post.author._id}}">{{this.post.author.firstName}} {{this.post.author.lastName}}</a>
-      <a href="/find-hackers/{{this.post.author._id}}" class="pic">
-        <img src="{{this.post.author.pictureURL}}" alt="{{this.post.author.firstName}} {{this.post.author.lastName}}">
-      </a>
     </div>
-
-    <div class="content">
-        <p>{{this.post.content}}</p>
-      </div>
-    </div>
-
-
-    <form action="/find-hackers/{{../hackerDoc._id}}/{{this.post._id}}/delete">
-      <button>Delete Comment</button>
-    </form>
-
+  </div>
 </div>
 
-{{else}}
-  <p>No reviews yet. Be the first to write one :)</p>
-{{/each}}
+{{!-- <hr> --}}
 
+<div class="other-background">
+  <h3>Have a question for {{hackerDoc.firstName}}?</h3>
+  <h4>Ask below!</h4>
+
+  <form method="POST" action="/find-hackers/{{hackerDoc._id}}/process-review">
+
+    {{!-- <label for="content">Comment</label> --}}
+    <input class="comment-box" type="textarea" name="content">
+
+    <button>Post Comment</button>
+  </form>
+</div>
+
+{{!-- <hr> --}}
+
+<div class="mp-box-flex">
+  {{#each hackerDoc.comments}}
+
+    <div class="comment-item">
+      <div class="metadata">
+
+        <a href="/find-hackers/{{this.post.author._id}}">{{this.post.author.firstName}} {{this.post.author.lastName}}</a>
+        <a href="/find-hackers/{{this.post.author._id}}" class="pic">
+          <img src="{{this.post.author.pictureURL}}" alt="{{this.post.author.firstName}} {{this.post.author.lastName}}">
+        </a>
+
+      </div>
+
+      <div class="content">
+        <p class="date"><em>{{this.post.created_at}}</em></p>
+          <p>{{this.post.content}}</p>
+
+    {{#if ../connectedUser.isAdmin}}
+      <form action="/find-hackers/{{../hackerDoc._id}}/{{this.post._id}}/delete">
+        <button>Delete Comment</button>
+      </form>
+    {{/if}}
+
+    </div>
+  </div>
+</div>
+
+  {{else}}
+    <h3>No reviews yet. Be the first to write one :)</h3>
+  {{/each}}
+</div>
 
 

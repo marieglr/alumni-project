@@ -5,11 +5,12 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/mpStyle.css' />
+    <link rel='stylesheet' href='/stylesheets/MPstylesheet.css' />
     <link rel='stylesheet' href='/stylesheets/maStyle.css' />
   </head>
   <body>
   <header>
-    
+
 
       <nav>
         <div class="leftLinks">
@@ -17,9 +18,9 @@
         <a href="/">Home</a>
 </div>
   <div class="rightLinks">
-          
+
         {{#if connectedUser}}
-          
+
           <strong>{{connectedUser.email}}</strong>
           <a href="/you">View your page</a>
            <a href="/settings">Update your profile</a>

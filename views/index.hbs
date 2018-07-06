@@ -1,29 +1,39 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="mp-styles">
+  <div class="centered">
+    <div class="big-text">
+      <h1>Welcome to {{title}}</h1>
+      <h2>Discover fellow alumni, the fun way</h2>
+    </div>
+    {{#if connectedUser}}
+      {{#if connectedUser.isVerified}}
+
+    <article class="button-index">
+      <h3>Looking for someone?</h3>
+        <div class="links">
+          <a href="/search">Find an Ironhacker</a>
+
+          <a href="/random">Discover</a>
+        </div>
+      </article>
+      {{else}}
+        <h2>Cool stuff available soon!</h2>
+      {{/if}}
+
+    {{else}}
+      <a href="/login">Log In</a>
+
+      <h3>Not registered as an alum yet?</h3>
+      <a href="/signup">Sign up now!</a>
+    {{/if}}
 
 
-{{#if connectedUser}}
+    {{#if connectedUser.isAdmin}}
+    <article class="button-index">
+      <h3>So you're an admin, eh?</h3>
+      <h4>{{verifyCount}} users waiting to be verified!</h4>
+      <a href="/verify-users">Verify Users Now!</a>
+    </article>
+    {{/if}}
 
-  {{#if connectedUser.isVerified}}
-    <h2>Looking for someone?</h2>
-    <button><a href="/search">Find an Ironhacker</a></button>
-
-    <button><a href="/random">Discover</a></button>
-  {{else}}
-    <h2>Cool stuff available soon!</h2>
-  {{/if}}
-
-{{else}}
-  <a href="/login">Log In</a>
-
-  <p>Not a registered as an alum yet?</p>
-  <button><a href="/signup">Sign up now!</a></button>
-{{/if}}
-
-
-{{#if connectedUser.isAdmin}}
-
-  <h3>{{verifyCount}} users waiting to be verified!</h3>
-  <p><a href="/verify-users">Verify Users Now!</a></p>
-
-{{/if}}
+  </div>
+</div>
