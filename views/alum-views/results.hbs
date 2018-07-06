@@ -1,17 +1,18 @@
 {{!-- {{#if hackerResults}} --}}
+
 {{#each hackerResults}}
+  <div class="list-style-box">
+    <img src="{{this.photoUrl}}">
+    <h3>{{this.firstName}} {{this.lastName}}</h3>
 
-<img src="{{this.photoUrl}}">
-<h3>{{this.firstName}} {{this.lastName}}</h3>
+      {{#if this.isEmployed}}
+        <p>Currently working in {{this.currentCity}} @ {{this.currentCompany}}</p>
+      {{else}}
+        <p>Currently in {{this.currentCity}}!</p>
+      {{/if}}
 
-  {{#if this.isEmployed}}
-    <p>Currently working in {{this.currentCity}} @ {{this.currentCompany}}</p>
-  {{else}}
-    <p>Currently in {{this.currentCity}}!</p>
-  {{/if}}
-
-<a href="/find-hackers/{{this._id}}">View More</a>
-
+    <a href="/find-hackers/{{this._id}}">View More</a>
+  </div>
 {{/each}}
 
 <p><a href="/search">Return to search</a></p>

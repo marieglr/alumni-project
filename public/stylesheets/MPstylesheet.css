@@ -168,11 +168,20 @@ light blue: #32C3FF */
   line-height: 1em;
 }
 
+.list-style-box {
+  margin: 20px 0;
+}
+
+.no-users {
+  margin: 150px 0;
+}
+
 .no-comment {
   margin-top: 2em;
   font-size: 1.8em;
   letter-spacing: 1.5px;
   text-align: center;
+  padding-bottom: 50px;
 }
 
 .mp-box-flex {
@@ -319,7 +328,7 @@ light blue: #32C3FF */
 
 .metadata img {
   height: 100%;
-  width: 200px;
+  width: 150px;
 }
 
 .date em {
