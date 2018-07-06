@@ -14,6 +14,8 @@ light blue: #32C3FF */
   color: white;
 }
 
+
+
 .mp-styles .centered {
   text-align: center;
   align-self: flex-start;
@@ -80,6 +82,55 @@ light blue: #32C3FF */
 
 .mp-styles .links a {
   margin: 2em; }
+
+  @media (max-width: 567px) {
+
+    .mp-styles {
+      font-size: 8px;
+    }
+
+    .mp-styles h1 {
+      margin: 0.97em 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .mp-styles {
+      font-size: 12px;
+    }
+
+    .mp-styles h1 {
+      margin: 0.97em 0;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .mp-styles {
+      font-size: 12px;
+    }
+
+    .mp-styles h1 {
+      margin: 0.97em 0;
+      line-height: 1.3em;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .mp-styles {
+      font-size: 12px;
+    }
+
+    .mp-styles h1 {
+      margin: 0.97em 0;
+      line-height: 1.3em;
+    }
+
+    .mp-styles h2 {
+      font-size: 2em;
+      margin: 0.83em 0;
+    }
+  }
+
 
 /* VERIFY USERS PAGE */
 
@@ -159,6 +210,28 @@ light blue: #32C3FF */
 .icon-set a {
   display: inline-block;
   padding-left: .75em;
+}
+
+@media (max-width: 1200px) {
+  .mp-cont-flex {
+    font-size: 12px;
+  }
+
+  .mp-box-flex .icon {
+    width: 40px;
+  }
+
+  .other-background {
+    font-size: 12px;
+  }
+
+  .comment-box {
+    font-size: 12px;
+  }
+
+  .content button {
+    font-size: 12px;
+  }
 }
 
 .other-background {
