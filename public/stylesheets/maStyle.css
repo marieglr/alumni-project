@@ -3,6 +3,11 @@
   align-items: center;
   flex-direction: column; }
 
+.flexStart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
+
 .loginPage {
   justify-content: center;
   height: 100vh; }
@@ -16,11 +21,6 @@
   justify-content: center;
   height: 150px; }
 
-.flexStart {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around; }
-
 .signupPage, .settingsPage {
   height: 1500px; }
 
@@ -33,5 +33,30 @@
 .signupPage p,
 .settingsPage p {
   line-height: 60px; }
+
+.searchPage {
+  justify-content: center;
+  height: 100vh; }
+
+.searchBox {
+  width: 800px;
+  height: 300px;
+  justify-content: space-around; }
+
+.searchPage form {
+  height: 150px;
+  justify-content: space-around; }
+
+.searchPage .searchFields {
+  display: flex;
+  justify-content: space-between;
+  width: 350px; }
+
+.searchPage .nameInput {
+  height: 56px;
+  border: 1px solid #f5f5f5;
+  width: 230px;
+  color: #F49102;
+  font-size: 1.2em; }
 
 /*# sourceMappingURL=maStyle.css.map */
