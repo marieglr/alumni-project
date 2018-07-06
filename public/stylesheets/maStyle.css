@@ -1,9 +1,37 @@
-.loginPage {
+.centerflex {
   display: flex;
-  width: 200px;
-  height: 300px; }
+  align-items: center;
+  flex-direction: column; }
 
-.loginWrapper {
-  margin: auto; }
+.loginPage {
+  justify-content: center;
+  height: 100vh; }
+
+.loginPage .loginWrapper {
+  width: 200px;
+  height: 250px;
+  justify-content: space-around; }
+
+.loginPage form {
+  justify-content: center;
+  height: 150px; }
+
+.flexStart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
+
+.signupPage, .settingsPage {
+  height: 1500px; }
+
+.signupPage h2,
+.settingsPage h2,
+.signupPage h3,
+.settingsPage h3 {
+  line-height: 80px; }
+
+.signupPage p,
+.settingsPage p {
+  line-height: 60px; }
 
 /*# sourceMappingURL=maStyle.css.map */

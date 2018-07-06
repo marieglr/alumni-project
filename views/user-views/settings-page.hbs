@@ -1,24 +1,29 @@
-<h2>User Settings</h2>
+<div class="settingsPage flexStart">
+
+  <h2>User Settings</h2>
+  <br>
 
   {{>flashMessages}}
 
-<form method="POST" action="/process-settings" enctype="multipart/form-data">
+  <form method="POST" action="/process-settings" enctype="multipart/form-data">
 
-  {{>userInfoForm}}
+    {{>userInfoForm}}
 
 
-<h3>Change your password</h3>
-  <label for="">
-    Old Password:
-    <input type="password" name="oldPassword" placeholder="your old password" >
-  </label>
-  <br>
+    <h3>Change your password</h3>
+    <label for="">
+      Old Password:
+      <input type="password" name="oldPassword" placeholder="your old password">
+    </label>
+
 
     <label for="">
       New Password:
-    <input type="password" name="newPassword" placeholder="your new password">
-  </label>
-  <br>
+      <input type="password" name="newPassword" placeholder="your new password">
+    </label>
 
-  <button>Save Settings</button>
-</form>
+
+    <button>Save Settings</button>
+  </form>
+
+</div>

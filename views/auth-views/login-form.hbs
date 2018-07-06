@@ -1,21 +1,23 @@
-<div class="loginPage">
+<div class="loginPage centerflex">
 
-  <div class="loginWrapper">
+  <div class="loginWrapper centerflex">
 
     <h2>Log In</h2>
 
     {{>flashMessages}}
 
-    <form method="POST" action="/process-login">
+    <form method="POST" action="/process-login" class="centerflex">
       <label for="email">
         <input type="email" name="email" placeholder="Enter your username here">
       </label>
-      <br>
+    
 
       <label for="loginPassword">
         <input type="password" name="loginPassword" placeholder="******">
       </label>
+    
       <br>
+      
 
       <button>Log In</button>
     </form>
