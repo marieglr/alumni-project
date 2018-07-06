@@ -14,8 +14,6 @@ light blue: #32C3FF */
   color: white;
 }
 
-
-
 .mp-styles .centered {
   text-align: center;
   align-self: flex-start;
@@ -94,7 +92,7 @@ light blue: #32C3FF */
     }
   }
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     .mp-styles {
       font-size: 12px;
     }
@@ -102,9 +100,13 @@ light blue: #32C3FF */
     .mp-styles h1 {
       margin: 0.97em 0;
     }
+
+    .mp-styles h2 {
+      width: 750px;
+    }
   }
 
-  @media (max-width: 992px) {
+  @media (min-width: 992px) {
     .mp-styles {
       font-size: 12px;
     }
@@ -113,9 +115,22 @@ light blue: #32C3FF */
       margin: 0.97em 0;
       line-height: 1.3em;
     }
+
+
+  }
+/*
+  @media (max-width: 1040px) {
+    .mp-styles {
+      font-size: 12px;
+    } */
+
+    .mp-styles h1 {
+      margin: 0.97em 0;
+      line-height: 1.3em;
+    }
   }
 
-  @media (max-width: 1200px) {
+  @media (min-width: 1200px) {
     .mp-styles {
       font-size: 12px;
     }
