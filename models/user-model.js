@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const moment = require("moment");
 
 const Schema = mongoose.Schema;
 
@@ -66,6 +67,9 @@ const userSchema = new Schema ({
   timestamps : true,
 })
 
+userSchema.virtual("cohort").get(function(){
+  return moment(this.cohortTime).format("MMM YYYY");
+});
 
 userSchema.virtual("isAdmin").get(function(){
   return this.role === "admin";
