@@ -29,10 +29,11 @@ router.get("/find-hackers", (req, res, next) => {
   //prevent users from accessing the search feature
   if (!req.user) {
     req.flash("error", "You must be logged in to see this page!");
-     res.redirect("/login");
-     return;
-   }
-   if (req.user.accountStatus !== "verified") {
+    res.redirect("/login");
+    return;
+  }
+
+  if (req.user.accountStatus !== "verified") {
     req.flash("error", "You must be verified to see this page");
     res.redirect("/");
     return;
@@ -77,8 +78,8 @@ router.get("/find-hackers", (req, res, next) => {
 router.get("/find-hackers/:hackerId", (req, res, next) => {
   if (!req.user) {
     req.flash("error", "You must be logged in to see this page!");
-     res.redirect("/login");
-     return;
+    res.redirect("/login");
+    return;
    }
 
    const { hackerId } = req.params;
