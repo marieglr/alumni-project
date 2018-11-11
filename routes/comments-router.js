@@ -8,7 +8,6 @@ const Comment = require("../models/comment-model.js");
 
 
 router.post("/find-hackers/:hackerId/process-review", (req, res, next)=>{
- // res.send(req.user);
   const {hackerId} = req.params;
   const {content} = req.body;
   const author = req.user._id;

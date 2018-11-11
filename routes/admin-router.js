@@ -9,6 +9,7 @@ router.get("/verify-users", (req, res, next) => {
     res.redirect("/login");
     return;
    }
+   
   if ((req.user.accountStatus !== "verified") || (req.user.role !== "admin")) {
     req.flash("error", "You do not have access to this page");
     res.redirect("/");
