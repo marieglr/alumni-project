@@ -36,17 +36,20 @@ uploader.single("pictureUpload"),
 
   const {...fields} = req.body;
 
-  let { secure_url } = req.file;
-
+  
   if (fields.originalPassword === "" || fields.originalPassword.match(/[0-9]/)=== null) {
     req.flash("error", "Password cannot be blank and require a number");
     res.redirect("/signup");
     return;
   }
 
+  let pictureURL;
+  if(req.file){
+    pictureURL = req.file.secure_url;
+  }
 
   fields.encryptedPassword = bcrypt.hashSync(fields.originalPassword, 10);
-  User.create({ ...fields, pictureURL: secure_url})
+  User.create({ ...fields, pictureURL})
     .then((userDoc)=>{
       req.login(userDoc, () => {
         if(req.user.accountStatus === "unverified"){
