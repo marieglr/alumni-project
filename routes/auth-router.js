@@ -1,9 +1,6 @@
-//CONFIG
-//----------------------------------------------------------------------------------------------------------
 const multer = require("multer");
 const express = require("express");
 const bcrypt = require("bcrypt");
-const passport = require("passport");
 const cloudinary = require("cloudinary");
 const cloudinaryStorage = require("multer-storage-cloudinary");
 
@@ -36,59 +33,27 @@ router.get("/signup", (req, res, next)=>{
 router.post("/process-signup",
 uploader.single("pictureUpload"),
 (req, res, next)=>{
-  // res.send({ file: req.file, body: req.body });
-  // return;
-  const {
-    firstName,
-    lastName,
-    email,
-    pictureURL,
-    biography,
-    originalPassword,
-    linkedInAccount,
-    githubAccount,
-    behanceAccount,
-    course,
-    courseTimeStructure,
-    IronhackCourseCity,
-    cohortTime,
-    currentCity,
-    employmentStatus,
-    currentCompany
-  } = req.body;
+
+  const {...fields} = req.body;
 
   let { secure_url } = req.file;
 
-  //password can't be blank and require numbers
-  if (originalPassword === "" || originalPassword.match(/[0-9]/)=== null) {
+  if (fields.originalPassword === "" || fields.originalPassword.match(/[0-9]/)=== null) {
     req.flash("error", "Password cannot be blank and require a number");
     res.redirect("/signup");
     return;
   }
 
 
-  const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
-  User.create({
-    firstName,
-    lastName,
-    pictureURL: secure_url,
-    biography,
-    email,
-    encryptedPassword,
-    linkedInAccount,
-    githubAccount,
-    behanceAccount,
-    course,
-    courseTimeStructure,
-    IronhackCourseCity,
-    cohortTime,
-    currentCity,
-    employmentStatus,
-    currentCompany
-  })
+  fields.encryptedPassword = bcrypt.hashSync(fields.originalPassword, 10);
+  User.create({ ...fields, pictureURL: secure_url})
     .then((userDoc)=>{
-    req.flash("success", "Signed up successfully, try logging in");
-      res.redirect("/");
+      req.login(userDoc, () => {
+        if(req.user.accountStatus === "unverified"){
+          req.flash("success", "Signed up successfully")
+          res.redirect("/unverified")
+        }
+      });
     })
     .catch((err)=>{
       next(err);
@@ -104,20 +69,17 @@ router.get("/login", (req, res, next)=>{
 })
 
 router.post("/process-login", (req, res, next)=>{
-  //res.send(req.body)
 
   const { email, loginPassword} = req.body;
 
   User.findOne({email})
     .then((userDoc)=>{
-      //"userDoc" will be falsy if the query didnt match a user with this email in the db
       if (!userDoc) {
        req.flash("error", "Incorrect email");
         res.redirect("/login");
         return;
       }
 
-      //if we get there, the email is ok, we can check for the pw
       const {encryptedPassword} = userDoc;
       if (!bcrypt.compareSync(loginPassword, encryptedPassword)){
         req.flash("error", "incorrect password");
