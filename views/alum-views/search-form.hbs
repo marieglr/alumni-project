@@ -4,10 +4,10 @@
 
     <form method="GET" action="/find-hackers" class="centerflex">
     <div class="searchFields">
-      <input type="text" name="firstName" placeholder="John" class="nameInput">
+     <input type="text" name="firstName" placeholder="Enter a name!" class="nameInput">
 
-      <select name="IronhackCourseCity">
-        <option value="all">All Cities</option>
+      <select name="IronhackCourseCity" class="dropDown">
+        <option value="">All Cities</option>
         <option value="Paris">Paris</option>
         <option value="Miami">Miami</option>
         <option value="Barcelona">Barcelona</option>
@@ -15,16 +15,16 @@
         <option value="Berlin">Berlin</option>
         <option value="Mexico">Mexico</option>
       </select>
-</div>
-      
-      {{!-- <select name="cohortTime">
-        {{#each info}}
-        <option value="{{this.cohortTime}}">{{this.cohortTime}}</option>
-        {{/each}}
-      </select> --}}
 
-      <button class="index-btn">Search for an Ironhacker!</button>
+      <select name="course" class="dropDown">
+        <option value="">All Courses</option>
+        <option value="UX-UI">UX-UI</option>
+        <option value="Web-Dev">Web-Dev</option>
+      </select>
+
+    <button class="index-btn searchButton">Search</button>
     </form>
+    </div>
 
   </div>
 
