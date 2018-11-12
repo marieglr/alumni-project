@@ -29,56 +29,46 @@ router.get("/find-hackers", (req, res, next) => {
   //prevent users from accessing the search feature
   if (!req.user) {
     req.flash("error", "You must be logged in to see this page!");
-     res.redirect("/login");
-     return;
-   }
-   if (req.user.accountStatus !== "verified") {
+    res.redirect("/login");
+    return;
+  }
+
+  if (req.user.accountStatus !== "verified") {
     req.flash("error", "You must be verified to see this page");
     res.redirect("/");
     return;
   }
 
-   if (req.query.firstName === "") {
-    User.find(
-      {IronhackCourseCity: req.query.IronhackCourseCity, accountStatus: "verified"})
-      .then(data => {
-        res.locals.hackerResults = data;
-        res.render("alum-views/results.hbs")
-        })
-      .catch(err => {
-        next(err)
-      })
-   }
-   else if (req.query.IronhackCourseCity === "all"){
-    User.find(
-      {firstName:req.query.firstName, accountStatus: "verified"})
-      .then(data => {
-        res.locals.hackerResults = data;
-        res.render("alum-views/results.hbs")
-        })
-      .catch(err => {
-        next(err)
-      })
-   }
-   else {
-    User.find(
-      {$and: [{IronhackCourseCity: req.query.IronhackCourseCity},
-      {firstName:req.query.firstName}], accountStatus: "verified"})
-      .then(data => {
-        res.locals.hackerResults = data;
-        res.render("alum-views/results.hbs")
-        })
-      .catch(err => {
-        next(err)
-      })
-   }
+  let searchFields = Object.keys(req.query);
+  const where = { };
+
+  searchFields = searchFields.map(searchField => {
+    const fieldValue = req.query[searchField];
+
+    if (fieldValue){
+      where[searchField] = fieldValue;
+    }
+
+    return where;
+  })
+  console.log(req.query)
+
+  User.find(where)
+    .then((users) => {
+      res.locals.hackerResults = users;
+      res.render('alum-views/results.hbs')
+    })
+    .catch((err) => {
+      next(err);
+    });
 })
+
 
 router.get("/find-hackers/:hackerId", (req, res, next) => {
   if (!req.user) {
     req.flash("error", "You must be logged in to see this page!");
-     res.redirect("/login");
-     return;
+    res.redirect("/login");
+    return;
    }
 
    const { hackerId } = req.params;

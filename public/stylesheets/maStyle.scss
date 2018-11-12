@@ -1,6 +1,6 @@
 // dark blue: #1E2334
-// medium blue: #2D354C 
-// light blue: #32C3FF 
+// medium blue: #2D354C
+// light blue: #32C3FF
 
 //GENERAL CLASSES
 //-----------------------------------------------------------------------------------------------------------------------------------
@@ -23,14 +23,14 @@
 
 .loginPage {
   justify-content: center;
-  height: 100vh; 
+  height: 100vh;
 }
 
 .loginPage .loginWrapper {
    width: 200px;
   height: 250px;
   justify-content: space-around;
- 
+
 }
 
 .loginPage form {
@@ -64,7 +64,7 @@
 
 .searchPage {
   justify-content: center;
-  height: 100vh; 
+  height: 100vh;
 }
 
 .searchBox {
@@ -74,22 +74,52 @@
 }
 
 .searchPage form {
-  height: 150px;
+  border-radius: 5px;
+  height: 100px;
   justify-content: space-around;
+  width: 1000px;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .searchPage .searchFields {
   display: flex;
   justify-content: space-between;
-  width: 350px;
+  align-items: center;
+  width: 950px;
 }
 
 .searchPage .nameInput {
+  border-radius: 5px;
+  padding: 0;
   height: 56px;
   border: 1px solid #f5f5f5;
   width: 230px;
   color: #F49102;
-  font-size: 1.2em;
+  font-size: 1em;
+  width: 30%;
+  text-align: center;
+}
+
+.searchButton {
+  color: white;
+  background-color: #2DC5FA;
+  border-radius: 5px;
+  font-size: inherit;
+  border: none;
+  width: 20%;
+  height: 58px;
+  padding: 0;
+}
+
+.dropDown {
+  border-radius: 5px;
+  height: 58px;
+  text-align-last: center;
+  width: 20%;
+  background: white;
+  color: #F49102;
+  font-size: 1em;
 }
 
 // .comment-box {
