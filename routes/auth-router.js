@@ -3,7 +3,6 @@
 const multer = require("multer");
 const express = require("express");
 const bcrypt = require("bcrypt");
-const passport = require("passport");
 const cloudinary = require("cloudinary");
 const cloudinaryStorage = require("multer-storage-cloudinary");
 

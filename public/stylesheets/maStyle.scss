@@ -17,25 +17,44 @@
   justify-content: space-around;
 }
 
+.input{
+  border-radius: 5px;
+  padding: 0;
+  border: 1px solid #f5f5f5;
+  color: #F49102;
+  font-size: 1em;
+  text-align: center;
+}
+
 // LOGIN PAGE
 //-----------------------------------------------------------------------------------------------------------------------------------
 
 
 .loginPage {
   justify-content: center;
-  height: 100vh;
+  height:calc(100vh - 170px);
+}
+
+.loginPage h2 {
+  line-height: 80px;
+  letter-spacing: 0;
 }
 
 .loginPage .loginWrapper {
-   width: 200px;
-  height: 250px;
+  height: 350px;
+  width: 350px;
   justify-content: space-around;
-
 }
 
 .loginPage form {
   justify-content: center;
-  height: 150px;
+  height: 100%;
+}
+
+.loginPage .input {
+  margin: 5px 0;
+  height: 45px;
+  width: 180px;
 }
 
 
@@ -64,7 +83,7 @@
 
 .searchPage {
   justify-content: center;
-  height: 100vh;
+  height:calc(100vh - 170px);
 }
 
 .searchBox {
@@ -82,6 +101,13 @@
   background: rgba(0, 0, 0, 0.1);
 }
 
+.loginWrapper {
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.1);
+}
+
 .searchPage .searchFields {
   display: flex;
   justify-content: space-between;
@@ -89,16 +115,10 @@
   width: 950px;
 }
 
-.searchPage .nameInput {
-  border-radius: 5px;
-  padding: 0;
+.searchPage .input {
   height: 56px;
-  border: 1px solid #f5f5f5;
   width: 230px;
-  color: #F49102;
-  font-size: 1em;
   width: 30%;
-  text-align: center;
 }
 
 .searchButton {
@@ -122,6 +142,10 @@
   font-size: 1em;
 }
 
+.unverifiedPage{
+  height:calc(100vh - 170px);
+}
+
 // .comment-box {
 //   height: 56px;
 //   border: 1px solid #f5f5f5;
@@ -129,3 +153,19 @@
 //   color: #F49102;
 //   font-size: 1.2em;
 // }
+
+.contactButton {
+  font-weight: 400;
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  color: #32C3FF;
+  cursor: pointer;
+  display: block;
+  font-size: 1.25em;
+  margin: 2em auto;
+  padding: 28px 0;
+  text-decoration: none;
+  transition: background .3s ease-in-out;
+  width: 20%;
+}
