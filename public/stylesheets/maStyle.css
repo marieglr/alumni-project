@@ -16,6 +16,14 @@
   font-size: 1em;
   text-align: center; }
 
+.dropDown {
+  border-radius: 5px;
+  height: 58px;
+  text-align-last: center;
+  background: white;
+  color: #F49102;
+  font-size: 1em; }
+
 .loginPage {
   justify-content: center;
   height: calc(100vh - 170px); }
@@ -27,7 +35,10 @@
 .loginPage .loginWrapper {
   height: 350px;
   width: 350px;
-  justify-content: space-around; }
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.1); }
 
 .loginPage form {
   justify-content: center;
@@ -38,9 +49,6 @@
   height: 45px;
   width: 180px; }
 
-.signupPage, .settingsPage {
-  height: 1500px; }
-
 .signupPage h2,
 .settingsPage h2,
 .signupPage h3,
@@ -50,6 +58,27 @@
 .signupPage p,
 .settingsPage p {
   line-height: 60px; }
+
+.signupPage form,
+.settingsPage form {
+  padding-bottom: 60px; }
+
+.signupPage .userInfo, .settingsPage .userInfo {
+  line-height: 50px; }
+
+.signupPage .rowFlex .input, .settingsPage .rowFlex .input {
+  width: 80%;
+  margin-top: 20px; }
+
+.signupPage .options, .settingsPage .options {
+  line-height: 30px;
+  padding-left: 10%;
+  padding-bottom: 20px; }
+
+.signupPage .rowFlex, .settingsPage .rowFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
 
 .searchPage {
   justify-content: center;
@@ -65,12 +94,6 @@
   height: 100px;
   justify-content: space-around;
   width: 1000px;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.1); }
-
-.loginWrapper {
-  border-radius: 5px;
-  justify-content: space-between;
   align-items: center;
   background: rgba(0, 0, 0, 0.1); }
 
@@ -95,14 +118,8 @@
   height: 58px;
   padding: 0; }
 
-.dropDown {
-  border-radius: 5px;
-  height: 58px;
-  text-align-last: center;
-  width: 20%;
-  background: white;
-  color: #F49102;
-  font-size: 1em; }
+.searchPage .dropDown {
+  width: 20%; }
 
 .unverifiedPage {
   height: calc(100vh - 170px); }

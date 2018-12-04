@@ -4,101 +4,106 @@
     <label for="firstName">
       First Name: *
     </label>
-    <input type="text" name="firstName" id="firstName" placeholder="Elon">
+    <input class="input" type="text" name="firstName" id="firstName" placeholder="Elon">
 
 
     <label for="lastName">
       Last Name: *
     </label>
-    <input type="text" name="lastName" id="lastName" placeholder="Musk">
+    <input class="input" type="text" name="lastName" id="lastName" placeholder="Musk">
 
 
-    <label for="pictureUpload">
+    <label for="pictureUpload" class="rowFlex">
       Picture: *
-      <input type="file" name="pictureUpload" />
+      <input class="input" type="file" name="pictureUpload" />
     </label>
 
     <label for="email">
       Email: *
     </label>
-    <input type="email" name="email" id="email" placeholder="sophie@dupont.com">
+    <input class="input" type="email" name="email" id="email" placeholder="sophie@dupont.com">
 
 
     <label for="originalPassword">
       Password: *
     </label>
-    <input type="password" name="originalPassword" id="originalPassword" placeholder="******">
+    <input class="input" type="password" name="originalPassword" id="originalPassword" placeholder="******">
 
 
     <label for="linkedInAccount">
       LinkedIn Account URL:
     </label>
-    <input type="text" name="linkedInAccount" id="linkedInAccount">
+    <input class="input" type="text" name="linkedInAccount" id="linkedInAccount">
 
 
     <label for="githubAccount">
       Github Account URL:
     </label>
-    <input type="text" name="githubAccount" id="githubAccount">
+    <input class="input" type="text" name="githubAccount" id="githubAccount">
 
 
     <label for="behanceAccount">
       Behance Account URL:
     </label>
-    <input type="text" name="behanceAccount" id="behanceAccount">
+    <input class="input" type="text" name="behanceAccount" id="behanceAccount">
 
 
     <label for="biography">
       About you:
     </label>
-    <input type="text" name="biography" id="biography">
-  </div> 
+    <input class="input" type="text" name="biography" id="biography">
+  </div>
 
-<br>
+  <br>
 
-   <div class="courseInfo flexStart">
+  <div class="courseInfo flexStart">
 
     <h3>Ironhack Course Information:</h3>
-    <label for="course">
-      Course Attended: *
-    </label>
-    <select name="course">
-      <option value="">Course</option>
-      <option value="UX-UI">UX-UI</option>
-      <option value="Web-Dev">Web-Dev</option>
-    </select>
+    <div class="rowFlex">
+      <div class="selectItem flexStart">
+        <label for="course">
+          Course Attended: *
+        </label>
+        <select name="course" class="dropDown">
+          <option value="">Course</option>
+          <option value="UX-UI">UX-UI</option>
+          <option value="Web-Dev">Web-Dev</option>
+        </select>
+      </div>
 
+      <div class="selectItem flexStart">
+        <label for="courseTimeStructure">
+          Time Structure: *
+        </label>
+        <select name="courseTimeStructure" class="dropDown">
+          <option value="">Full or Part</option>
+          <option value="full-time">Full-Time</option>
+          <option value="part-time">Part-Time</option>
+        </select>
+      </div>
 
-    <label for="courseTimeStructure">
-      Time Structure: *
-    </label>
-    <select name="courseTimeStructure">
-      <option value="">Full or Part</option>
-      <option value="full-time">Full-Time</option>
-      <option value="part-time">Part-Time</option>
-    </select>
-
-
-    <label for="IronhackCourseCity">
-      Bootcamp City: *
-    </label>
-    <select name="IronhackCourseCity">
-      <option value="">Campus</option>
-      <option value="Miami">Miami</option>
-      <option value="Madrid">Madrid</option>
-      <option value="Barcelona">Barcelona</option>
-      <option value="Paris">Paris</option>
-      <option value="Mexico">Mexico</option>
-      <option value="Berlin">Berlin</option>
-    </select>
-
+      <div class="selectItem flexStart">
+        <label for="IronhackCourseCity">
+          Bootcamp City: *
+        </label>
+        <select name="IronhackCourseCity" class="dropDown">
+          <option value="">Campus</option>
+          <option value="Miami">Miami</option>
+          <option value="Madrid">Madrid</option>
+          <option value="Barcelona">Barcelona</option>
+          <option value="Paris">Paris</option>
+          <option value="Mexico">Mexico</option>
+          <option value="Berlin">Berlin</option>
+        </select>
+      </div>
+    </div>
 
     <label for="cohortTime">Bootcamp Start Date: *</label>
-    <input type="month" id="cohortTime" name="cohortTime" min="2011-01" value="2018-05" />
+    <input class="input" type="month" id="cohortTime" name="cohortTime" min="2011-01" value="2018-05" />
 
   </div>
 
-<br>
+  <br>
 
   <div class="currentInfo flexStart">
 
@@ -107,27 +112,27 @@
     <label for="currentCity">
       Current City: *
     </label>
-    <input type="text" name="currentCity" id="currentCity">
+    <input class="input" type="text" name="currentCity" id="currentCity">
 
-<div class="job">
-    <label for="employmentStatus">
-      Employment Status:
-    </label>
-    <input type="checkbox" name="employmentStatus" value="Currently working">Currently working
-
-    <input type="checkbox" name="employmentStatus" value="Looking for a job">Looking for a job
-
-    <input type="checkbox" name="employmentStatus" value="Neither">Neither
-</div>
+    <div class="job flexStart">
+      <label for="employmentStatus">
+        Employment Status*:
+      </label>
+      <div class="options">
+        <div><input class="input" type="checkbox" name="employmentStatus" value="Currently working">Currently working</div>
+        <div><input class="input" type="checkbox" name="employmentStatus" value="Looking for a job">Looking for a job</div>
+        <div><input class="input" type="checkbox" name="employmentStatus" value="Neither">Neither</div>
+        </divclass>
+    </div>
 
 
 
     <label for="currentCompany">
       Current Company:
     </label>
-    <input type="text" name="currentCompany" id="currentCompany">
+    <input class="input" type="text" name="currentCompany" id="currentCompany">
   </div>
-<br>
+  <br>
   <p>* These fields are required</p>
 
 </div>

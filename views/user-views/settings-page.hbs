@@ -1,4 +1,4 @@
-<div class="settingsPage flexStart">
+<div class="settingsPage centerflex">
 
   <h2>User Settings</h2>
   <br>
@@ -9,21 +9,22 @@
 
     {{>userInfoForm}}
 
-
-    <h3>Change your password</h3>
-    <label for="">
-      Old Password:
-      <input type="password" name="oldPassword" placeholder="your old password">
-    </label>
-
-
-    <label for="">
-      New Password:
-      <input type="password" name="newPassword" placeholder="your new password">
-    </label>
+    <div class="flexStart">
+      <h3>Change your password</h3>
+      <label>
+        Old Password:
+        <input class="input" type="password" name="oldPassword" placeholder="your old password">
+      </label>
 
 
-    <button>Save Settings</button>
+      <label class="big-text">
+        New Password:
+        <input class="input" type="password" name="newPassword" placeholder="your new password">
+      </label>
+
+
+      <button>Save Settings</button>
+    </div>
   </form>
 
 </div>
