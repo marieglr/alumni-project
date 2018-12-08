@@ -6,7 +6,6 @@ const Comment = require("../models/comment-model.js");
 
 //ADD COMMENTS
 
-
 router.post("/find-hackers/:hackerId/process-review", (req, res, next)=>{
   const {hackerId} = req.params;
   const {content} = req.body;
@@ -19,28 +18,14 @@ router.post("/find-hackers/:hackerId/process-review", (req, res, next)=>{
    }
 
 Comment.create({author, content})
-
-  .then((commentDoc)=>{
-    console.log(`added comment to the comments collection`);
-    const post = commentDoc;
-
-      User.findByIdAndUpdate(
+  .then((post)=> {
+    return User.findByIdAndUpdate(
         hackerId,
         {$push: {comments: {post}}}, 
         {runValidators: true}
-      )
-        .then((userDoc)=>{
-          console.log(`updated ${hackerId} with new comment`);
-          res.redirect(`/find-hackers/${hackerId}`);
-        })
-        .catch(err=>{
-          next(err)
-       })
-
-      })
-  .catch(err=>{
-    next(err)
-  })
+    )})
+  .then(()=> res.redirect(`/find-hackers/${hackerId}`))
+  .catch(err => next(err))
 });
 
 
@@ -58,19 +43,15 @@ router.get("/find-hackers/:hackerId/:postId/delete", (req, res, next)=>{
 
   Comment.findByIdAndRemove(postId)
     .then((postDoc)=>{
-      req.flash("success", "We deleted your comment!");
-     User.findByIdAndUpdate(req.params.hackerId, 
-      {$pull : {comments :{post : req.params.postId}}})
-        .then(user => {
-        })
-        .catch(err=> console.log(err))
-
-      res.redirect(`/find-hackers/${hackerId}`);
-    })
-    .catch(err=>{
-      next(err);
-    })
-
+      return User.findByIdAndUpdate(
+        req.params.hackerId, 
+        {$pull : {comments :{post : req.params.postId}}}
+        )
+      })
+    .then(() => {
+      req.flash("success", "Your comment was successfully deleted!");
+      return res.redirect(`/find-hackers/${hackerId}`)})
+    .catch(err=> next(err))
 })
 
 

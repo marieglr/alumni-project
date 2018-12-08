@@ -1,7 +1,6 @@
 const multer = require("multer");
 const express = require("express");
 const bcrypt = require("bcrypt");
-const passport = require("passport");
 const cloudinary = require("cloudinary");
 const cloudinaryStorage = require("multer-storage-cloudinary");
 
@@ -44,23 +43,7 @@ router.post("/process-settings",
     return;
   }
 
-  const fields = [ 'firstName',
-  'lastName',
-  'email',
-  'linkedInAccount',
-  'githubAccount',
-  'behanceAccount',
-  'biography',
-  'course',
-  'courseTimeStructure',
-  'IronhackCourseCity',
-  'cohortTime',
-  'currentCity',
-  'employmentStatus',
-  'currentCompany',
-  'oldPassword',
-  'newPassword' ]
-
+  const fields = Object.keys(req.body)
   const changes = { };
 
   fields.forEach((oneField)=>{
@@ -84,14 +67,14 @@ router.post("/process-settings",
       res.redirect("/settings");
       return;
     }
-    const encryptedPassword = bcrypt.hashSync(changes.newPassword, 10);
+    changes.encryptedPassword = bcrypt.hashSync(changes.newPassword, 10);
   }
 
   User.findByIdAndUpdate(
     req.user._id,
     {$set: changes},
   )
-    .then((userDoc)=> {
+    .then(()=> {
       req.flash("success", "Settings saved successfully");
       res.redirect("/")
     })
@@ -99,22 +82,6 @@ router.post("/process-settings",
       next(err)
     })
 })
-
-
-// router.get("/about-you", (req, res, next) => {
-//   res.render("user-views/edit-page.hbs");
-// })
-
-// router.post("/edit-about/:userId", (req, res, next) => {
-//   const { userId } = req.params;
-//   const { bio } = req.body;
-
-//   User.findByIdAndUpdate(
-//     userId,
-//     { $set: {about: {bio, project} } },
-
-//   )
-// })
 
 
 module.exports = router;
