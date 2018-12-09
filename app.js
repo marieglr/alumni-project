@@ -16,7 +16,7 @@ const passportSetup = require('./passport/setup.js');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect("mongodb://localhost/alumni-project", {useMongoClient: true})
+  .connect(process.env.MONGODB_URI, {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
