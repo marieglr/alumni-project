@@ -17,35 +17,63 @@
   justify-content: space-around;
 }
 
+.input{
+  border-radius: 5px;
+  padding: 0;
+  border: 1px solid #f5f5f5;
+  color: #F49102;
+  font-size: 1em;
+  text-align: center;
+}
+
+.dropDown {
+  border-radius: 5px;
+  height: 58px;
+  text-align-last: center;
+  background: white;
+  color: #F49102;
+  font-size: 1em;
+}
+
 // LOGIN PAGE
 //-----------------------------------------------------------------------------------------------------------------------------------
 
 
 .loginPage {
   justify-content: center;
-  height: 100vh;
+  height:calc(100vh - 170px);
+}
+
+.loginPage h2 {
+  line-height: 80px;
+  letter-spacing: 0;
 }
 
 .loginPage .loginWrapper {
-   width: 200px;
-  height: 250px;
+  height: 350px;
+  width: 350px;
   justify-content: space-around;
-
+  align-items: center;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .loginPage form {
   justify-content: center;
-  height: 150px;
+  height: 100%;
 }
+
+.loginPage .input {
+  margin: 5px 0;
+  height: 45px;
+  width: 180px;
+}
+
 
 
 //SIGN UP AND SETTINGS PAGES
 //-----------------------------------------------------------------------------------------------------------------------------------
 
-
-.signupPage, .settingsPage {
-  height: 1500px;
-}
 
 .signupPage h2,
 .settingsPage h2,
@@ -59,12 +87,38 @@
   line-height: 60px;
 }
 
+.signupPage form,
+.settingsPage form {
+  padding-bottom: 60px;
+}
+
+.signupPage .userInfo, .settingsPage .userInfo {
+  line-height: 50px;
+}
+
+.signupPage .rowFlex .input, .settingsPage .rowFlex .input {
+  width: 80%;
+  margin-top: 20px;
+}
+
+.signupPage .options, .settingsPage .options {
+  line-height: 30px;
+  padding-left: 10%;
+  padding-bottom: 20px
+}
+
+.signupPage .rowFlex, .settingsPage .rowFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 //SEARCH PAGE
 //-----------------------------------------------------------------------------------------------------------------------------------
 
 .searchPage {
   justify-content: center;
-  height: 100vh;
+  height:calc(100vh - 170px);
 }
 
 .searchBox {
@@ -89,16 +143,10 @@
   width: 950px;
 }
 
-.searchPage .nameInput {
-  border-radius: 5px;
-  padding: 0;
+.searchPage .input {
   height: 56px;
-  border: 1px solid #f5f5f5;
   width: 230px;
-  color: #F49102;
-  font-size: 1em;
   width: 30%;
-  text-align: center;
 }
 
 .searchButton {
@@ -112,14 +160,12 @@
   padding: 0;
 }
 
-.dropDown {
-  border-radius: 5px;
-  height: 58px;
-  text-align-last: center;
+.searchPage .dropDown {
   width: 20%;
-  background: white;
-  color: #F49102;
-  font-size: 1em;
+}
+
+.unverifiedPage{
+  height:calc(100vh - 170px);
 }
 
 // .comment-box {
@@ -129,3 +175,19 @@
 //   color: #F49102;
 //   font-size: 1.2em;
 // }
+
+.contactButton {
+  font-weight: 400;
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  color: #32C3FF;
+  cursor: pointer;
+  display: block;
+  font-size: 1.25em;
+  margin: 2em auto;
+  padding: 28px 0;
+  text-decoration: none;
+  transition: background .3s ease-in-out;
+  width: 20%;
+}

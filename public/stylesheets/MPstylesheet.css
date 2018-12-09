@@ -6,8 +6,6 @@ light blue: #32C3FF */
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
 .mp-styles {
   display: flex;
-  /* width: 100vw; */
-  height: 100vh;
   justify-content: center;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -30,8 +28,13 @@ light blue: #32C3FF */
 .mp-styles h2 {
   font-size: 2.5em;
   font-weight: 700;
+  line-height: 60px;
   color: #32C3FF;
   margin: 0.83em 0;
+}
+
+.home-title {
+  display: block
 }
 
 .mp-styles h3 {
@@ -65,7 +68,7 @@ light blue: #32C3FF */
 .mp-styles a:hover {
   background: #f5f5f5; }
 
-.mp-styles .big-text {
+.big-text {
   padding-bottom: 45px; }
 
 .mp-styles p {
@@ -128,7 +131,7 @@ light blue: #32C3FF */
       margin: 0.97em 0;
       line-height: 1.3em;
     }
-  }
+  
 
   @media (max-width: 1200px) {
     .mp-styles {
@@ -151,6 +154,7 @@ light blue: #32C3FF */
 
 .mp-box {
   display: inline-block;
+  height:calc(100vh - 170px);
 }
 
 .mp-box .space-around {

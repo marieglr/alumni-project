@@ -58,9 +58,6 @@ header {
   height: 100px;
   width: 100vw;
   margin: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 header a {
@@ -92,9 +89,6 @@ footer {
   background-color: #1E2334;
   height: 70px;
   width: 100vw;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   color: #fff;
   margin: 0;
 }
@@ -116,7 +110,7 @@ body {
   background-color: #2D354C;
   color: #fff;
   line-height: 30px;
-  margin: 100px 20% 70px;
+  margin: 0;
 }
 
 a {
